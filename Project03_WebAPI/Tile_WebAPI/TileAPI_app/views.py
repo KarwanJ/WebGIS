@@ -13,7 +13,7 @@ class TileView(View):
         zoom = [14, 19, 11, 9, 1, 7, 3]
         tile_x = [9280, 336663, 1316, 293, 1180, 77, 0]
         tile_y = [4840, 211845, 828, 151, 602, 38, 3]
-        zipped_context = zip(zoom, tile_x, tile_y) #giving user some true
+        zipped_context = zip(zoom, tile_x, tile_y) #giving user some true samples to test
         context = {'zipped_context': zipped_context}
         return render(request, 'TileAPI_app/tile_form.html', context)
 
