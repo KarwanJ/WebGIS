@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STL Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <script>
+        // Create scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Add orbit controls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.screenSpacePanning = false;
+        controls.maxPolarAngle = Math.PI;
+
+        // Add lighting
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(0, 0, 1).normalize();
+        scene.add(light);
+
+        // Load STL file
+        const loader = new THREE.STLLoader();
+        loader.load('BatCat_Mask.stl', function (geometry) {
+            const material = new THREE.MeshPhongMaterial({ color: 0xFF0080 });
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            // Center the model
+            geometry.computeBoundingBox();
+            const center = new THREE.Vector3();
+            geometry.boundingBox.getCenter(center);
+            mesh.position.sub(center);
+
+            // Adjust camera position
+            const bbox = geometry.boundingBox;
+            const size = new THREE.Vector3().subVectors(bbox.max, bbox.min);
+            const maxDim = Math.max(size.x, size.y, size.z);
+            camera.position.set(0, -500, maxDim * 2);
+            camera.lookAt(0, 0, 0);
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+
+</html>
