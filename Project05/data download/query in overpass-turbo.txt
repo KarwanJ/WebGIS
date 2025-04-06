@@ -1,0 +1,7 @@
+[out:json][timeout:25];
+// fetch area “Tehran” to search in
+{{geocodeArea:Tehran}}->.searchArea;
+// gather only NODES (not ways/relations) for computer shops
+node["shop"="computer"](area.searchArea);
+// print results
+out geom;

@@ -1,0 +1,2255 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-04-06T19:16:03Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1707151489",
+        "description": "خدمات کامپیوتر کنسول و موبایل",
+        "name:en": "Rafigh store",
+        "opening_hours": "24/7",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4653398,
+          35.7860605
+        ]
+      },
+      "id": "node/1707151489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2874053786",
+        "name": "کامپیوتر و موبایل امیران",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4956206,
+          35.7965158
+        ]
+      },
+      "id": "node/2874053786"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3373127060",
+        "name": "بازار موبایل شرق تهران",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+9821 7790 1316",
+        "shop": "computer",
+        "shop_1": "mobile_phone"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4971364,
+          35.7200955
+        ]
+      },
+      "id": "node/3373127060"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285650389",
+        "addr:housenumber": "12",
+        "addr:street": "سوم",
+        "email": "info@pars-e.com",
+        "internet_access": "wlan",
+        "name": "پارس ارتباط افزار",
+        "opening_hours": "sa-th 08-17",
+        "phone": "+982189395",
+        "shop": "computer",
+        "website": "https://www.pars-e.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.421974,
+          35.7254273
+        ]
+      },
+      "id": "node/4285650389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4306015103",
+        "name": "پاساژ امجد",
+        "name:en": "Amjad Mall",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.410601,
+          35.6983705
+        ]
+      },
+      "id": "node/4306015103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4346273292",
+        "addr:housenumber": "41",
+        "addr:street": "سلیمانی غربی",
+        "email": "info@barg-co.com",
+        "internet_access": "wlan",
+        "name": "شرکت برگ",
+        "name:en": "Barg Company",
+        "opening_hours": "Sa-Th 09:00-17:00",
+        "phone": "+982122196758",
+        "shop": "computer",
+        "website": "https://barg-co.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4442465,
+          35.7986117
+        ]
+      },
+      "id": "node/4346273292"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4362166989",
+        "name": "شرکت سروشان",
+        "name:en": "Sorooshan co.",
+        "opening_hours": "Sa-Th 08:30-17:30",
+        "shop": "computer",
+        "website": "https://sorooshan.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4181211,
+          35.7066241
+        ]
+      },
+      "id": "node/4362166989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4366833993",
+        "addr:street": "بزرگراه نواب صفوی",
+        "name": "فروشگاه کامپیوتر",
+        "name:en": "TehranHost",
+        "phone": "+982166381002",
+        "shop": "computer",
+        "website": "https://www.tehranhost.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3783335,
+          35.6944067
+        ]
+      },
+      "id": "node/4366833993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4377138991",
+        "addr:street": "فتحی شقاقی",
+        "email": "info@knwifi.ir",
+        "internet_access": "wlan",
+        "name:ar": "کالا نماد",
+        "name:en": "knwifi",
+        "opening_hours": "Mo-Su 09:00-18:00",
+        "phone": "+98 21 4405 2052",
+        "shop": "computer",
+        "website": "https://www.knwifi.ir/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4089331,
+          35.724642
+        ]
+      },
+      "id": "node/4377138991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4386307493",
+        "addr:housenumber": "+982188831299",
+        "addr:postcode": "15889",
+        "addr:street": "زهره",
+        "email": "ahmadikhesal@Gmail.com",
+        "internet_access": "wlan",
+        "name:en": "mana afraz khavar co",
+        "opening_hours": "Sa-We 09:00-17:00; Th 09:00-13:00",
+        "phone": "+98 21 8883 1299",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4257837,
+          35.7220082
+        ]
+      },
+      "id": "node/4386307493"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4403557792",
+        "addr:housenumber": "513",
+        "addr:street": "حیدرخانی",
+        "internet_access": "wlan",
+        "name": "رایانه کمک",
+        "name:en": "Rayaneh Komak",
+        "opening_hours": "24/7",
+        "phone": "+982177192337",
+        "shop": "computer",
+        "website": "http://www.7129.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5032172,
+          35.7349334
+        ]
+      },
+      "id": "node/4403557792"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4557043800",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3643139,
+          35.6573603
+        ]
+      },
+      "id": "node/4557043800"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4571875990",
+        "addr:street": "شهید آیت‌الله بهشتی",
+        "name": "ویستا گارانتی",
+        "name:en": "waranty vista",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4401799,
+          35.7314015
+        ]
+      },
+      "id": "node/4571875990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4615969990",
+        "addr:housenumber": "448",
+        "addr:street": "کارون",
+        "name": "مرکز کامپیوتر پایتخت",
+        "name:en": "Paytakht Computer Center",
+        "opening_hours": "Sa-Th 08:00-22:00; Fr 09:30-21:00",
+        "phone": "+98 21 6688 1164",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3667202,
+          35.691649
+        ]
+      },
+      "id": "node/4615969990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4674410194",
+        "name": "خدمات کامپیوتری ات ساین",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5928184,
+          35.7342292
+        ]
+      },
+      "id": "node/4674410194"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4674416194",
+        "name": "رایکا",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5937324,
+          35.7329206
+        ]
+      },
+      "id": "node/4674416194"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4712041090",
+        "addr:street": "هجرت",
+        "email": "Kosarstore8701@gmail.com",
+        "internet_access": "wlan",
+        "name": "فروشگاه کوثر (موبایل -کامپیوتر - بیمه ایران - صدور انواع بلیط)",
+        "name:en": "Kosar Store",
+        "phone": "+98 21 3320 7801",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5112353,
+          35.6752354
+        ]
+      },
+      "id": "node/4712041090"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4714164691",
+        "addr:street": "میدان ولی عصر عج",
+        "name": "فروشگاه بِرادِرز",
+        "name:en": "Brothers shop",
+        "opening_hours": "Mo-Su 10:15-21:30",
+        "phone": "+982188929069",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4073139,
+          35.7109619
+        ]
+      },
+      "id": "node/4714164691"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4715979493",
+        "name": "لیون کامپیوتر",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4060525,
+          35.7085203
+        ]
+      },
+      "id": "node/4715979493"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4733450621",
+        "addr:housenumber": "903",
+        "addr:street": "میرداماد",
+        "email": "a.jabbari@deltous.com",
+        "internet_access": "wlan",
+        "name": "گارانتی کندل ایران",
+        "name:en": "Deltous",
+        "opening_hours": "Sa-We 09:30-18:30; Th 09:30-14:00",
+        "phone": "+982188665064",
+        "shop": "computer",
+        "website": "https://www.candelliran.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4111826,
+          35.7627656
+        ]
+      },
+      "id": "node/4733450621"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4738822549",
+        "addr:housenumber": "35",
+        "addr:street": "بوعلی سینا",
+        "email": "info@hpe.ir",
+        "name": "هوشمند پردازش الکا",
+        "name:en": "HPE",
+        "phone": "+982188999005",
+        "shop": "computer",
+        "website": "http://hpe.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4059243,
+          35.7211908
+        ]
+      },
+      "id": "node/4738822549"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4769354834",
+        "name": "خدمات کامپیوتر",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.2460269,
+          35.7261086
+        ]
+      },
+      "id": "node/4769354834"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4789238421",
+        "addr:housenumber": "9",
+        "addr:street": "داوود حبیب‌ زادگان",
+        "email": "PooyaCom.ir@gmail.com",
+        "name": "پویاکام",
+        "name:en": "PooyaCom",
+        "opening_hours": "Mo-Su 09:00-18:00",
+        "shop": "computer",
+        "website": "http://PooyaCom.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3543419,
+          35.7042944
+        ]
+      },
+      "id": "node/4789238421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4803036021",
+        "name": "گلد تگ",
+        "name:en": "Gold Tag",
+        "opening_hours": "Sa-Th 08:30-16:30",
+        "phone": "+98 21 2641 4047",
+        "shop": "computer",
+        "website": "http://www.goldtag.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4471311,
+          35.7523769
+        ]
+      },
+      "id": "node/4803036021"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4808212421",
+        "name": "فناپ",
+        "name:en": "Fanap Platform",
+        "shop": "computer",
+        "source:name": "map.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3528749,
+          35.7333516
+        ]
+      },
+      "id": "node/4808212421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4819936529",
+        "addr:city": "تهران",
+        "addr:housenumber": "24",
+        "addr:street": "بالاتر از زرتشت، کوچه جاوید، پلاک 24",
+        "fixme": "اینجا، فروشگاه سخت‌افزار رایانه است نه ابزار. بررسی شود که برچسب مناسب چیست.",
+        "internet_access": "wlan",
+        "name": "لیون کامپیوتر",
+        "name:en": "Lioncomputer",
+        "opening_hours": "Sa-Th 09:30-19:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:cryptocurrencies": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+982191005666",
+        "shop": "computer",
+        "website": "https://www.lioncomputer.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4085507,
+          35.7186837
+        ]
+      },
+      "id": "node/4819936529"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4854493421",
+        "addr:street": "ستارخان",
+        "name": "بازار سنتی ستارخان",
+        "name:en": "Sattarkhan bazar",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3511522,
+          35.7213772
+        ]
+      },
+      "id": "node/4854493421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4965167522",
+        "addr:housenumber": "10",
+        "addr:street": "دکتر مفتح",
+        "contact:email": "sale@hpsupport.ir",
+        "contact:phone": "+982188521040",
+        "internet_access": "wlan",
+        "name": "مرکز فروش و خدمات اچ پی",
+        "name:en": "hp support",
+        "opening_hours": "Sa-We 08:30-18:00; Th 09:30-15:30",
+        "shop": "computer",
+        "website": "https://www.hpsupport.ir/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4262268,
+          35.7279394
+        ]
+      },
+      "id": "node/4965167522"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5021592924",
+        "addr:street": "میدان ولی‌عصر ع",
+        "email": "doctorcomputershojaei@gmail.com",
+        "name": "دکتر کامپیوتر",
+        "name:en": "Doctor computer",
+        "opening_hours": "Mo-Su 10:00-20:00",
+        "phone": "+98 21 8892 9012",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4072743,
+          35.7108477
+        ]
+      },
+      "id": "node/5021592924"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5040657523",
+        "addr:housenumber": "115",
+        "addr:street": "بزرگراه فتح",
+        "email": "ihdelevator@gmail.com",
+        "name": "فروشگاه آسانسور دینا",
+        "name:en": "Dina Asansor shoping",
+        "opening_hours": "Sa-We 09:00-19:00; Th 09:00-14:00",
+        "phone": "+982166286217",
+        "shop": "computer",
+        "website": "http://www.ihdelevator.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3207206,
+          35.6752654
+        ]
+      },
+      "id": "node/5040657523"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5050046521",
+        "addr:postcode": "169",
+        "addr:street": "شادالویی",
+        "name": "کامپیوتر کارآمد",
+        "name:en": "karamad pc",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "phone": "+982177324854",
+        "shop": "computer",
+        "website": "https://telegram.me/karamad_pc",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5449773,
+          35.7413821
+        ]
+      },
+      "id": "node/5050046521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5075584053",
+        "name": "مرکز کامپیوتر وحید",
+        "name:en": "Vahid Computer Center",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4860964,
+          35.7316413
+        ]
+      },
+      "id": "node/5075584053"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5183997795",
+        "addr:city": "tehran",
+        "addr:housenumber": "181",
+        "addr:street": "سید جمال‌الدین اسدآبادی",
+        "email": "smallappstore@gmail.com",
+        "fax": "+982188728345",
+        "name": "اپل استور کوچک",
+        "name:en": "Small Apple Store",
+        "opening_hours": "10:00-22:00",
+        "operator": "علی کوچکی",
+        "phone": "+982188704355",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4070717,
+          35.7293562
+        ]
+      },
+      "id": "node/5183997795"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5389786121",
+        "addr:housenumber": "181",
+        "addr:street": "زکریای رازی",
+        "internet_access": "wlan",
+        "name": "فروشگاه ماهان",
+        "name:en": "Mahan store",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "shop": "computer",
+        "source:name": "map.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4455847,
+          35.5917556
+        ]
+      },
+      "id": "node/5389786121"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5516623922",
+        "addr:housenumber": "18",
+        "addr:street": "مرتضی کارگر سامانی",
+        "email": "Mojsystem55310750@gmail.com",
+        "name": "موج سیستم",
+        "name:en": "Moj System",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+98 21 5518 6407",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3984378,
+          35.637949
+        ]
+      },
+      "id": "node/5516623922"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5678421236",
+        "addr:housenumber": "143",
+        "addr:street": "بلوار صبا",
+        "name": "تیم پلاس",
+        "name:en": "Tim Plus",
+        "opening_hours": "Su-Th 10:00-22:00, Fr 17:00-22:00",
+        "operator": "Hedayati",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+98 21 22201283",
+        "shop": "computer",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4395768,
+          35.7946333
+        ]
+      },
+      "id": "node/5678421236"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5965592685",
+        "name": "جزیره",
+        "name:en": "jazireh",
+        "phone": "33182998",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4652314,
+          35.6818222
+        ]
+      },
+      "id": "node/5965592685"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6359913543",
+        "description": "فروشگاه موبایل و مرکز تخصصی تعمیرات سخت افزاری و نرم افزاری موبایل\nفروش انواع لوازم جانبی موبایل و کامپیوتر",
+        "level": "0",
+        "name": "پارس مموری نارمک",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4902075,
+          35.7309529
+        ]
+      },
+      "id": "node/6359913543"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6687995014",
+        "addr:city": "تهران",
+        "addr:country": "IR",
+        "addr:housenumber": "710",
+        "addr:postcode": "1648697175",
+        "addr:street": "بزرگراه شهید سلیمانی",
+        "name": "فروشگاه کامپیوتر و لپ تاپ آتیه پرداز",
+        "name:en": "mobile and computer store Atieh Pardaz",
+        "opening_hours": "10:00-21:00",
+        "operator": "فروشگاه کامپیوتر و موبایل آتیه پرداز",
+        "phone": "+98 21 7727 1616",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4916961,
+          35.7359937
+        ]
+      },
+      "id": "node/6687995014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6877752086",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4730999,
+          35.7069295
+        ]
+      },
+      "id": "node/6877752086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7284111183",
+        "addr:city": "تهران",
+        "addr:housenumber": "478",
+        "addr:postcode": "1377636769",
+        "addr:street": "بلوار معلم",
+        "name": "لیان وب",
+        "opening_hours": "24/7",
+        "operator": "ارائه خدمات طراحی سایت",
+        "payment:cash": "yes",
+        "payment:visa": "yes",
+        "shop": "computer",
+        "website": "https://lianweb.ir/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3114497,
+          35.6527159
+        ]
+      },
+      "id": "node/7284111183"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7692025804",
+        "description": "خرید و فروش و تعمیرات تخصصی لپ تاپ ، موبایل و  لوازم جانبی\nکنسول بازی و خدمات مرتبط",
+        "name": "فروشگاه بایونیک",
+        "name:en": "Bionic Store",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3517446,
+          35.7772019
+        ]
+      },
+      "id": "node/7692025804"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7831334199",
+        "name": "گسترش رایانه",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3669236,
+          35.6667278
+        ]
+      },
+      "id": "node/7831334199"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7954598322",
+        "addr:city": "تهران",
+        "addr:housenumber": "تهران 15خرداد غربی جنب بانک آینده ساختمان جهان پلاک 1052 طبقه اول",
+        "addr:street": "پانزده خرداد",
+        "air_conditioning": "yes",
+        "brand": "Asus Lenovo Samsung",
+        "description": "هدهد آی تی فروشگاه لوازم دیجیتال تبلت لپتاپ لوازم جانبی می باشد و در این محل می توانید علاوه بر خرید از خدمات کافی نت مجموعه مانند فوتوکپی پرینت سیاه و سفید و رنگی استفاده نمایید",
+        "email": "hodhodnet2020@gmaill.com",
+        "fax": "+9855802793",
+        "internet_access": "wlan",
+        "name": "فروشگاه هدهد آی‌تی",
+        "opening_hours": "Sa-Th 09:00-17:00",
+        "operator": "سیدمهدی باستان",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "phone": "+9855632149",
+        "shop": "computer",
+        "website": "https://hodhodit.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4145178,
+          35.6784978
+        ]
+      },
+      "id": "node/7954598322"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8095922917",
+        "addr:street": "برادران پاکند",
+        "name": "عرضه کامپیوتر نو و دسته دوم (سروری و خانگی و لپ تاپ) سخت افزار و مشاوره",
+        "name:en": "Ocean system",
+        "opening_hours": "Mo-Su 09:00-23:00",
+        "phone": "+989124640788",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3028887,
+          35.6687363
+        ]
+      },
+      "id": "node/8095922917"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8150612382",
+        "name": "الکتریکی",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5025328,
+          35.6490816
+        ]
+      },
+      "id": "node/8150612382"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8195719533",
+        "addr:city": "تهران",
+        "addr:housenumber": "80",
+        "addr:postcode": "1651743486",
+        "addr:street": "سعید باغدارنیا",
+        "name": "خدمات کامپیوترو موبایل پدرخوانده",
+        "opening_hours": "08:00-21:00",
+        "operator": "Bahram & Shahram",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+98 21 7786 7553",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5202765,
+          35.7283767
+        ]
+      },
+      "id": "node/8195719533"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8330729816",
+        "contact:mobile": "+98 930 294 0267",
+        "name": "خدمات کامپیوتر و کافینت نوین",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4522256,
+          35.5826927
+        ]
+      },
+      "id": "node/8330729816"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8490822197",
+        "addr:city": "تهران",
+        "addr:street": "نصر یکم",
+        "name": "طراحی سایت رسارایان",
+        "phone": "+989120942434",
+        "shop": "computer",
+        "website": "https://rasarayan.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4725685,
+          35.6577507
+        ]
+      },
+      "id": "node/8490822197"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8815178033",
+        "addr:city": "تهران",
+        "addr:street": "خیابان قزوین خیابان شهید نعیمی کوچه رهنما خانقاه پنجم پلاک ۴۷",
+        "name": "استوک لپ (علی اکبری)",
+        "opening_hours": "Mo-Su 10:00-21:30",
+        "operator": "استوک لپ علی اکبری",
+        "payment:cash": "yes",
+        "phone": "+98 912 599 2697",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3749959,
+          35.6666199
+        ]
+      },
+      "id": "node/8815178033"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8879936873",
+        "addr:city": "تهران",
+        "addr:street": "خیابان انقلاب، خیابان بهار جنوبی، مجتمع اداری و تجاری بهار",
+        "name": "کریپتالین",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+98 21 2842 8934",
+        "shop": "computer",
+        "website": "https://www.cryptalin.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4287702,
+          35.703101
+        ]
+      },
+      "id": "node/8879936873"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8892267117",
+        "name": "پردازشگران",
+        "phone": "+98 905 706 0248",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5463166,
+          35.7557434
+        ]
+      },
+      "id": "node/8892267117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8939384581",
+        "name": "مجتمع فنی تهران پایتخت",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3891527,
+          35.7011449
+        ]
+      },
+      "id": "node/8939384581"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8950523975",
+        "addr:city": "تهران",
+        "addr:housenumber": "433",
+        "addr:postcode": "1437773679",
+        "addr:street": "صادق آئینه وند",
+        "name": "Jita Apple Store",
+        "opening_hours": "24/7",
+        "operator": "Engineer Maleki",
+        "payment:cash": "yes",
+        "phone": "+989012332711",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3981998,
+          35.7446057
+        ]
+      },
+      "id": "node/8950523975"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9017517215",
+        "contact:phone": "+982188939519",
+        "contact:website": "http://iliasystem.net",
+        "name": "ایلیاسیستم",
+        "opening_hours": "09:00-18:00",
+        "shop": "computer",
+        "source": "note"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4072269,
+          35.7105971
+        ]
+      },
+      "id": "node/9017517215"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9570456460",
+        "addr:city": "شهر تهران",
+        "addr:street": "بلوار تهرانسر",
+        "brand": "Penobit",
+        "email": "info@penobit.com",
+        "name": "Penobit",
+        "name:fa": "پنوبیت",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "R8",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "payment:credit_cards": "yes",
+        "payment:cryptocurrencies": "yes",
+        "phone": "+989024005345",
+        "shop": "computer",
+        "start_date": "2022-10-01",
+        "website": "https://penobit.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.2555785,
+          35.7019649
+        ]
+      },
+      "id": "node/9570456460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9642470848",
+        "addr:city": "Tehran",
+        "addr:housenumber": "پاساژ ابریشم",
+        "addr:street": "خیابان ولی عصر",
+        "name": "فروشگاه لپ تایم",
+        "phone": "+989360704396",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4056617,
+          35.7022812
+        ]
+      },
+      "id": "node/9642470848"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9920471269",
+        "name": "پاساژ خوارزمی",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.404513,
+          35.7062544
+        ]
+      },
+      "id": "node/9920471269"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10003975567",
+        "name": "موبوآذر",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4411063,
+          35.6453493
+        ]
+      },
+      "id": "node/10003975567"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10012311117",
+        "addr:housenumber": "69",
+        "addr:street": "عبدالله میرزایی",
+        "email": "Farahmandtools@gmail.com",
+        "name": "ابزار فرهمند",
+        "name:en": "Farahmand Tools",
+        "opening_hours": "Sa-We 08:30-13:30; Th 00:00-24:00",
+        "phone": "+98 21 6670 3012",
+        "shop": "computer",
+        "website": "http://Farahmandtools.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4129496,
+          35.6868473
+        ]
+      },
+      "id": "node/10012311117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10223885095",
+        "addr:city": "تهران",
+        "addr:street": "موحد دانش",
+        "name": "BBO TECH",
+        "name:en": "bbo tech",
+        "name:fa": "بی بی او تک",
+        "opening_hours": "Su-Fr 10:00-21:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+9981402800",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4754074,
+          35.8051144
+        ]
+      },
+      "id": "node/10223885095"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10921334022",
+        "addr:city": "Tehran",
+        "addr:housenumber": "134",
+        "addr:postcode": "1598977616",
+        "addr:street": "سپهبد قرنی",
+        "air_conditioning": "yes",
+        "brand": "فروشگاه ماشین های اداری پرسپولیس",
+        "description": "“گروه ماشین های اداری پرسپولیس” دارنده برند دبل ایکس ( Double X ) بعد از گذشت ۴۰ سال سابقه فروشگاهی در زمینه ماشین آلات اداری در سال ۱۳۹۱ اقدام به فروش و عرضه محصولات خود در دنیای مجازی نمود.ماشین های اداری دبل ایکس در صنف ماشین آلات اداری حضور موفقی دا",
+        "ele": "0",
+        "email": "info@double-x.co",
+        "image": "https://double-x.co/wp-content/uploads/2022/08/arm.jpg",
+        "internet_access": "yes",
+        "internet_access:fee": "customers",
+        "level": "0",
+        "name": "فروشگاه ماشین های اداری دبل ایکس",
+        "note": "دبل ایکس یکی از برند های فروشگاه ماشین های اداری پرسپولیس می باشد.",
+        "opening_hours": "Mo-Fr 09:00-18:00",
+        "operator": "دادستان",
+        "payment:app": "yes",
+        "payment:cash": "yes",
+        "payment:cheque": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+982188803377",
+        "second_hand": "no",
+        "shop": "computer",
+        "stroller": "yes",
+        "website": "https://double-x.co",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4181077,
+          35.7088669
+        ]
+      },
+      "id": "node/10921334022"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10936696539",
+        "addr:city": "تهران",
+        "addr:country": "IR",
+        "addr:housenumber": "8103",
+        "addr:street": "ولی عصر، تقاطع خیابان طالقانی، مجتمع تجاری و اداری نور",
+        "email": "info@behansystem.com",
+        "name": "بهان سیستم",
+        "name:en": "Behansystem",
+        "opening_hours": "Sa-We 11:00-17:00; Th 11:00-15:00",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "phone": "+982188226041",
+        "shop": "computer",
+        "website": "https://behansystem.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4057245,
+          35.7070943
+        ]
+      },
+      "id": "node/10936696539"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10942117458",
+        "addr:city": "تهران",
+        "addr:housenumber": "125",
+        "addr:street": "نامجو",
+        "name": "Shahr Computer",
+        "operator": "عباس عابدی",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "02177689810",
+        "second_hand": "yes",
+        "shop": "computer",
+        "website": "https://shahrcomputer.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4414798,
+          35.7020957
+        ]
+      },
+      "id": "node/10942117458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10947499049",
+        "addr:city": "تهران",
+        "addr:housenumber": "20",
+        "addr:street": "خیابان صدو نودو دوم",
+        "email": "aldigitall.com@gmail.com",
+        "name": "فروشگاه آل دیجیتال دات کام",
+        "note": "فروشگاه آل دیجیتال کالای دیجیتال و لوازم جانبی موبایل",
+        "opening_hours": "Mo-Su 08:30-17:30",
+        "operator": "آل دیجیتال",
+        "payment:cash": "yes",
+        "phone": "02191014644",
+        "shop": "computer",
+        "website": "https://aldigitall.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5411798,
+          35.7410092
+        ]
+      },
+      "id": "node/10947499049"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10973296463",
+        "addr:city": "شهر تهران",
+        "addr:housenumber": "19",
+        "addr:postcode": "1966684714",
+        "addr:street": "گیتی",
+        "name": "ابر ویراک",
+        "opening_hours": "Sa-We 09:00-15:00",
+        "operator": "VirakCloud",
+        "phone": "+982191555530",
+        "shop": "computer",
+        "website": "https://virakcloud.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4224678,
+          35.7842282
+        ]
+      },
+      "id": "node/10973296463"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10985202391",
+        "name": "کسب و کار اینترنتی سافت ری",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4265922,
+          35.5934747
+        ]
+      },
+      "id": "node/10985202391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10994125821",
+        "name": "کلان کامپیوتر",
+        "public": "yes",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4055273,
+          35.7049293
+        ]
+      },
+      "id": "node/10994125821"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11030158605",
+        "name": "فروشگاه تهران رایان",
+        "opening_hours": "Sa-We 11:00-19:00; Th 11:00-16:00",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3891326,
+          35.6996152
+        ]
+      },
+      "id": "node/11030158605"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11049773359",
+        "addr:city": "تهران",
+        "addr:housenumber": "پلاک 50 - واحد 6",
+        "addr:street": "وحید دستگردی",
+        "description": "تعمیرات موبایل\nفلش\nریجستر\nآنلاک\nFrp lock\nقفل جیمیل\nقفل frp\nفارسی سازی موبایل\nکاستوم رام\nخرید و فروش موبایل و تبلت\nتعمیرات نوت بوک و کامپیوتر\nنصب ویندوز و نرم افزار\nخرید و فروش کامپیوتر و لپ تاپ\nتعمیرات پرینتر لیزری\nتعمیرات مانیتور LCD و LED\nلوازم جانبی",
+        "name": "کامپیوتر امید",
+        "opening_hours": "9:00 - 21:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+982122900026",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4396532,
+          35.7647943
+        ]
+      },
+      "id": "node/11049773359"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11072539443",
+        "addr:city": "تهران",
+        "addr:place": "میدان فاطمی, جنب بیمارستان شهرام, مجتمع کامپیوتر هدیه, طبقه همکف",
+        "description": "فروش پروژکتور",
+        "image": "http://www.ejra.net",
+        "name": "دنیای پروژکتور",
+        "payment:cash": "yes",
+        "phone": "+982188967600",
+        "shop": "computer",
+        "website": "http://www.ejra.net"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4067264,
+          35.7206485
+        ]
+      },
+      "id": "node/11072539443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11099482667",
+        "addr:housenumber": "390",
+        "addr:street": "Dardasht",
+        "mobile": "+989207895998",
+        "name": "کامپیوتر پارسیان",
+        "name:en": "Parsian Computer",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+982177895998",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5029101,
+          35.7293701
+        ]
+      },
+      "id": "node/11099482667"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11104801131",
+        "addr:city": "تهران",
+        "addr:street": "سی متری نیروی هوایی نبش 7/38میرزایی گرگانی",
+        "description": "اورژانس کامپیوتر-ارائه دهنده کلیه خدمات کامپیوتر و موبایل و کنسول بازی سخت افزار و نرم افزار فروش انواع موبایل تبلت لپ تاپ و لوازم جانبی",
+        "mobile": "09123184028",
+        "name": "اورژانس کامپیوتر",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "operator": "اقای باطنی",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "021-77409775",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4886011,
+          35.7040728
+        ]
+      },
+      "id": "node/11104801131"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11113591291",
+        "addr:city": "تهران",
+        "addr:housenumber": "34",
+        "addr:street": "ولی عصر",
+        "name": "فروشگاه وایرشاپ",
+        "opening_hours": "شنبه تا پنجشنبه از ساعت 10 الی 19",
+        "operator": "WireshopTeam",
+        "phone": "+982166485010-11",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4031499,
+          35.7028977
+        ]
+      },
+      "id": "node/11113591291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11146674706",
+        "addr:city": "Tehran",
+        "addr:housenumber": "14",
+        "addr:postcode": "1587668311",
+        "addr:street": "سوم",
+        "name": "سام رایان پرداد",
+        "opening_hours": "sa-th 08-17",
+        "phone": "+982152754000",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4219426,
+          35.72533
+        ]
+      },
+      "id": "node/11146674706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11181773344",
+        "addr:city": "شهر تهران",
+        "addr:postcode": "1416799494",
+        "addr:street": "ولی عصر",
+        "name": "فروشگاه مگاهرتز",
+        "opening_hours": "Sa-Th 10:00-19:00",
+        "operator": "محمد حسین ذاکری",
+        "payment:cash": "yes",
+        "phone": "+982186097041",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.405731,
+          35.7074588
+        ]
+      },
+      "id": "node/11181773344"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11197661196",
+        "addr:city": "تهران",
+        "addr:housenumber": "22",
+        "addr:street": "دمشق",
+        "air_conditioning": "yes",
+        "email": "info@bazarsoo.ir",
+        "mobile": "+989125198348",
+        "name": "رایان نگار (بازار سو)",
+        "note": "لطفا قبل از مراجعه به فروشگاه  سفارش خود را ثبت کنید.\nساعات کاری:\n\nشنبه تا چهارشنبه از ساعت ۱۰:۰۰ تا ساعت ۱۹:۰۰\n\nپنجشنبه ازساعت ۱۰:۰۰ تا ساعت ۱۸:۰۰\n\nآدرس: شهرتهران - خیابان ولیعصر نرسیده به میدان ولیعصر خیابان دمشق پلاک۲۲ طبقه دوم واحد۴",
+        "operator": "وحید مظاهری",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "۰۲۱۸۸۹۳۶۱۸۰",
+        "shop": "computer",
+        "website": "https://bazarsoo.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4046678,
+          35.7088728
+        ]
+      },
+      "id": "node/11197661196"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11205308965",
+        "name": "AvvalStock",
+        "shop": "computer",
+        "website": "https://avvalstock.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4068261,
+          35.7123719
+        ]
+      },
+      "id": "node/11205308965"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11218192818",
+        "name": "رویال پلاس",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3908441,
+          35.7017797
+        ]
+      },
+      "id": "node/11218192818"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11412679486",
+        "name": "نت لند",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4617049,
+          35.7908731
+        ]
+      },
+      "id": "node/11412679486"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11503456169",
+        "name": "موبایل و کامپیوتر مهدی",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5353152,
+          35.7367959
+        ]
+      },
+      "id": "node/11503456169"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11513751882",
+        "addr:city": "تهران",
+        "addr:housenumber": "124",
+        "addr:street": "جمشید رویان",
+        "name": "خدمات کامپیوتری رویان رایانه",
+        "operator": "بختیاری",
+        "phone": "+982126145429",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4733472,
+          35.7352973
+        ]
+      },
+      "id": "node/11513751882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11540078291",
+        "addr:city": "تهران",
+        "addr:housenumber": "86",
+        "addr:postcode": "1593739788",
+        "addr:street": "فیروزه",
+        "currency:IRR": "yes",
+        "name": "کهکشان رایانه",
+        "opening_hours": "Sa-We 10:00-18:00; Th 10:00-13:00",
+        "payment:credit_cards": "yes",
+        "phone": "+982154785000;+982191094812",
+        "phone:UA": "+982191098618",
+        "shop": "computer",
+        "website": "https://pkr-co.ir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.406967,
+          35.7093159
+        ]
+      },
+      "id": "node/11540078291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11588943786",
+        "addr:city": "تهران",
+        "addr:street": "ولی عصر",
+        "addr:unit": "305",
+        "level": "-3",
+        "name": "گروه مهندسی مهدیا ویژن",
+        "opening_hours": "Sa-We 11:00-17:00",
+        "payment:app": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "phone": "+98 21 91325205",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4052337,
+          35.7049203
+        ]
+      },
+      "id": "node/11588943786"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11618352144",
+        "name": "فروشگاه یونی تک",
+        "phone": "02166913048",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3907338,
+          35.7017621
+        ]
+      },
+      "id": "node/11618352144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11682985918",
+        "addr:city": "تهران",
+        "addr:housenumber": "705A",
+        "addr:postcode": "19169763715",
+        "addr:street": "بلوار میرداماد - مجتمع تجاری پایتخت",
+        "name": "مرکز خدمات تخصصی اپل i-Phone.ir",
+        "opening_hours": "10:00-20:00",
+        "operator": "i-phone.ir",
+        "phone": "+9888872936",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4109523,
+          35.7629074
+        ]
+      },
+      "id": "node/11682985918"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11827022366",
+        "addr:city": "تهران",
+        "addr:housenumber": "6008",
+        "addr:postcode": "1416798334",
+        "addr:street": "تهران، دانشگاه تهران، خیابان دمشق، خیابان ولیعصر، مجتمع نور تهران، پلاک 1574",
+        "description": "فروشگاه هایکامپ، از سال 1384 به عنوان یک مرجع معتبر در زمینه تعمیرات کامپیوتر به صورت تخصصی فعالیت می‌کند. این فروشگاه امکان حضوری در محل را برای رفع مشکلات کامپیوتری فراهم می‌کند، تا کاربران بتوانند با آرامش از خدمات حرفه‌ای بهره‌مند شوند.",
+        "email": "highcompshop@gmail.com",
+        "mobile": "+989128471537",
+        "name": "هایکامپ",
+        "opening_hours": "Sa-Th 10:00-19:00",
+        "operator": "Owner",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+9821860975994",
+        "shop": "computer",
+        "website": "https://highcomp.net/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4057675,
+          35.7071926
+        ]
+      },
+      "id": "node/11827022366"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11903337424",
+        "addr:city": "Tehran",
+        "addr:street": "کوهسار چهارم مرکزی",
+        "name": "خدمات کامپیوتر ایروانی",
+        "phone": "09123588944",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3332535,
+          35.7799983
+        ]
+      },
+      "id": "node/11903337424"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11947052874",
+        "addr:city": "تهران",
+        "addr:housenumber": "طبقه سوم، واحد ۴۷۳",
+        "addr:street": "شهرک گلستان، بلوار علیمرادی (کوهک)",
+        "name": "استوک شاپ لند",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "phone": "+982146085835",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.248309,
+          35.7303327
+        ]
+      },
+      "id": "node/11947052874"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11962290350",
+        "name": "کامپیوتری نسیم",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.2812298,
+          35.7132114
+        ]
+      },
+      "id": "node/11962290350"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11990227271",
+        "name": "خدمات کامپیوتر مثلث",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5410917,
+          35.7420722
+        ]
+      },
+      "id": "node/11990227271"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11999632716",
+        "addr:city": "تهران",
+        "addr:street": "بلوار شهید منفرد نیاکی",
+        "name": "اپل استور مرکزی اپال",
+        "operator": "امیر مجدم",
+        "phone": "09128190689",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3511424,
+          35.776887
+        ]
+      },
+      "id": "node/11999632716"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12108247247",
+        "addr:city": "تهران",
+        "addr:street": "دمشق",
+        "email": "Info@hegzimal.com",
+        "mobile": "+98 21 66 45 51 28",
+        "name": "فروشگاه اینترنتی هگزیمال",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+98 21 88 92 78 25",
+        "shop": "computer",
+        "website": "https://hegzimal.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.404307,
+          35.7089389
+        ]
+      },
+      "id": "node/12108247247"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12108247248",
+        "email": "info@bazarsoo.ir",
+        "mobile": "+98 21 88 93 61 80",
+        "name": "فروشگاه اینترنتی بازارسو",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+98 21 88 92 78 25",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4043243,
+          35.7089102
+        ]
+      },
+      "id": "node/12108247248"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12135440615",
+        "addr:city": "شهر تهران",
+        "addr:housenumber": "115",
+        "addr:postcode": "1654969371",
+        "addr:street": "ابراهیم زارع",
+        "name": "رایان کامپیوتر",
+        "phone": "+98 21 777 86136",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.5441611,
+          35.7295612
+        ]
+      },
+      "id": "node/12135440615"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12148383411",
+        "addr:postcode": "1418946717",
+        "contact:instagram": "https://www.instagram.com/unitech_laptop?igsh=dWRhZWd2enRxcjNy",
+        "name": "فروشگاه یونی تک",
+        "phone": "09379450718",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3907686,
+          35.7017577
+        ]
+      },
+      "id": "node/12148383411"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12180201705",
+        "addr:city": "تهران",
+        "addr:street": "هاشمی",
+        "name": "گیم نت ونوس",
+        "opening_hours": "24/7",
+        "operator": "مهدی ونوس",
+        "phone": "09916713703",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3746178,
+          35.690499
+        ]
+      },
+      "id": "node/12180201705"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12298819583",
+        "addr:city": "تهران",
+        "addr:housenumber": "77",
+        "addr:street": "خیابان کرمان خیابان محمدرحیم صافی",
+        "mobile": "+98 939 816 9991",
+        "name": "کافی نت مجیدیه",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+98 21 2253 4854",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4736431,
+          35.7368606
+        ]
+      },
+      "id": "node/12298819583"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12318247006",
+        "addr:city": "تهران",
+        "addr:street": "آیت الله طالقانی",
+        "name": "فروشگاه فرنام تک",
+        "opening_hours": "Mo-Su 10:00-19:00",
+        "operator": "مهرداد عباسی",
+        "phone": "09122162733",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4056377,
+          35.7067931
+        ]
+      },
+      "id": "node/12318247006"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12329336010",
+        "name": "کامیتل شاپ",
+        "opening_hours": "08:00-21:30",
+        "phone": "02144291135",
+        "shop": "computer",
+        "website": "https://kamitelshop.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3432928,
+          35.7217736
+        ]
+      },
+      "id": "node/12329336010"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12357835202",
+        "addr:city": "تهران",
+        "addr:street": "نجف غزایی عتیق",
+        "name": "DETEX",
+        "opening_hours": "Mo-Fr 09:30-17:30",
+        "operator": "محمدرضا توکلی",
+        "phone": "02187700089",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4065476,
+          35.7139625
+        ]
+      },
+      "id": "node/12357835202"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12406956898",
+        "name": "آسو (آریا سیستم ورسا رایان)",
+        "opening_hours": "09:00-18:00",
+        "phone": "02188227780",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4053452,
+          35.7071123
+        ]
+      },
+      "id": "node/12406956898"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12450453344",
+        "name": "سپهر سیستم  تعمیر و فروش قطعات لپتاپ",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4111507,
+          35.7627036
+        ]
+      },
+      "id": "node/12450453344"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12500440615",
+        "addr:city": "تهران",
+        "addr:street": "برادران مظفر شمالی",
+        "name": "کامپیوتر اخوی شاپ",
+        "opening_hours": "Mo-Sa 10:00-19:00",
+        "operator": "احسان اخوی",
+        "phone": "02188227940",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4054608,
+          35.7073298
+        ]
+      },
+      "id": "node/12500440615"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12532347703",
+        "addr:city": "تهران",
+        "addr:street": "حسن زاده",
+        "image": "https://tecnobenis.shop/wp-content/uploads/512.png",
+        "level": "0",
+        "mobile": "09904120604",
+        "name": "تکنو بنیس",
+        "opening_hours": "Sa-Th 08:00-23:00",
+        "operator": "ایده پردازان جوان بنیس",
+        "payment:app": "yes",
+        "payment:cash": "yes",
+        "phone": "02191003013",
+        "shop": "computer",
+        "website": "https://tecnobenis.shop/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.3172592,
+          35.7361691
+        ]
+      },
+      "id": "node/12532347703"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12615404813",
+        "name": "فروشگاه سرور سوییچ",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4038069,
+          35.7056402
+        ]
+      },
+      "id": "node/12615404813"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12723758779",
+        "addr:city": "Tehran",
+        "addr:housenumber": "5",
+        "addr:postcode": "1584633933",
+        "addr:street": "خیابان ایرانشهر شمالی کوچه دهقانی‌نیا (خسرو سابق) ساختمان خسرو طبقه دو واحد شش",
+        "name": "مانیتور بزرگمهر | Bozorgmehr Monitor",
+        "note": "تعمیرات انواع مانیتور، لپتاپ، پرینتر و تلویزیون",
+        "opening_hours": "شنبه تا چهارشنبه 10 صبح تا 7 شب، پنج‌شنبه از 10 صبح تا 2 ظهر | Sat-Wed 10am to 7pm, Thurs 10am to 2pm",
+        "phone": "+98 2188831542, +98 2188842860, +98 9127180471",
+        "shop": "computer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.4186765,
+          35.7123303
+        ]
+      },
+      "id": "node/12723758779"
+    }
+  ]
+}
