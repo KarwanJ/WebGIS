@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml" version="1.0.0">
+  <sld:NamedLayer>
+    <sld:Name>TehranLaptopShops</sld:Name>
+    <sld:UserStyle>
+      <sld:Name>TehranLaptopShopsStyle</sld:Name>
+      <sld:FeatureTypeStyle>
+        <sld:Rule>
+          <sld:Name>Laptop Shops Icon - Zoom Out</sld:Name>
+          <sld:MinScaleDenominator>100000</sld:MinScaleDenominator>
+          <sld:PointSymbolizer>
+            <sld:Graphic>
+              <sld:ExternalGraphic>
+                <sld:OnlineResource xlink:type="simple" xlink:href="file:///C:/ProgramData/GeoServer/styles/laptop_cart2.png" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sld:Format>image/png</sld:Format>
+              </sld:ExternalGraphic>
+              <sld:Size>16</sld:Size>
+            </sld:Graphic>
+          </sld:PointSymbolizer>
+        </sld:Rule>
+        <sld:Rule>
+          <sld:Name>Laptop Shops Icon - Zoom In</sld:Name>
+          <sld:MaxScaleDenominator>100000</sld:MaxScaleDenominator>
+          <sld:PointSymbolizer>
+            <sld:Graphic>
+              <sld:ExternalGraphic>
+                <sld:OnlineResource xlink:type="simple" xlink:href="file:///C:/ProgramData/GeoServer/styles/laptop_cart2.png" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sld:Format>image/png</sld:Format>
+              </sld:ExternalGraphic>
+              <sld:Size>24</sld:Size>
+            </sld:Graphic>
+          </sld:PointSymbolizer>
+        </sld:Rule>
+        <sld:Rule>
+          <sld:Name>Laptop Shops Labels</sld:Name>
+          <sld:MaxScaleDenominator>30000</sld:MaxScaleDenominator>
+          <sld:TextSymbolizer>
+            <sld:Label>
+              <ogc:PropertyName>name</ogc:PropertyName>
+            </sld:Label>
+            <sld:Font>
+              <sld:CssParameter name="font-family">Arial</sld:CssParameter>
+              <sld:CssParameter name="font-size">15</sld:CssParameter>
+              <sld:CssParameter name="font-weight">bold</sld:CssParameter>
+            </sld:Font>
+            <sld:LabelPlacement>
+              <sld:PointPlacement>
+                <sld:AnchorPoint>
+                  <sld:AnchorPointX>0.5</sld:AnchorPointX>
+                  <sld:AnchorPointY>0.5</sld:AnchorPointY>
+                </sld:AnchorPoint>
+                <sld:Displacement>
+                  <sld:DisplacementX>0</sld:DisplacementX>
+                  <sld:DisplacementY>20</sld:DisplacementY>
+                </sld:Displacement>
+              </sld:PointPlacement>
+            </sld:LabelPlacement>
+            <sld:Fill>
+              <sld:CssParameter name="fill">#000000</sld:CssParameter>
+            </sld:Fill>
+          </sld:TextSymbolizer>
+        </sld:Rule>
+      </sld:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>
