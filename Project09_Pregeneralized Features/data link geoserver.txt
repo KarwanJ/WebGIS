@@ -1,0 +1,4 @@
+C:\ProgramData\GeoServer\data
+
+
+C:\Program Files\GeoServer\webapps\geoserver\WEB-INF\lib

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bounding Box Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/background.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content-box {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px 20px;
+            background-color: rgba(0, 0, 0, 0.70);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: left;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p, ul {
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #00ccff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-box">
+    <h2>Bounding Box Result</h2>
+
+    <p>X: {{ x }}, Y: {{ y }}, Zoom: {{ zoom }}</p>
+
+    <ul>
+        <li><strong>Min Longitude:</strong> {{ min_lon }}</li>
+        <li><strong>Min Latitude:</strong> {{ min_lat }}</li>
+        <li><strong>Max Longitude:</strong> {{ max_lon }}</li>
+        <li><strong>Max Latitude:</strong> {{ max_lat }}</li>
+    </ul>
+
+    <a href="{% url 'bbox_Calculator' %}">Back</a>
+</div>
+
+</body>
+</html>

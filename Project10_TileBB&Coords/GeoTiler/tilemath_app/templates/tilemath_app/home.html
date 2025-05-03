@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tile Tools - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/background.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content-box {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px 20px;
+            background-color: rgba(0, 0, 0, 0.70);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        hr {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-box">
+    <h1>Tile Calculation Tools</h1>
+
+    <a href="{% url 'bbox_Calculator' %}">Tile to Bounding Box</a>
+
+    <hr>
+
+    <a href="{% url 'tilecoords_Calculator' %}">Coordinates to Tile Number</a>
+</div>
+
+</body>
+</html>
