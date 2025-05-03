@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LaptopFinder Tehran</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.2.1/ol.css">
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.2.1/dist/ol.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <div class="toolbar">
+    <div><b>لایه‌ها:</b></div>
+    <label><input type="checkbox" id="toggle-laptop" checked> لایه مغازه های لپ‌تاپ تهران</label>
+    <label><input type="checkbox" id="toggle-draw" checked> لایه ترسیمات  </label>
+    <hr>
+    <button id="identify-btn" class="btn">شناسه (Identify)</button>
+    <button id="export-png" class="btn">خروجی PNG</button>
+    <hr>
+    <div><b>ترسیم</b></div>
+    <select id="draw-type" class="btn">
+      <option value="None">غیرفعال</option>
+      <option value="Point">نقطه</option>
+      <option value="LineString">خط</option>
+      <option value="Polygon">پلیگون</option>
+    </select>
+    <button id="undo" class="btn">Undo</button>
+    <button id="clear-draw" class="btn">حذف ترسیمات</button>
+    <hr>
+    <button id="edit-features" class="btn">ویرایش ترسیمات</button>
+    <div id="edit-controls" style="display: none; margin-top: 10px;">
+      <button id="save-edit" class="btn">ذخیره تغییرات</button>
+      <button id="cancel-edit" class="btn">انصراف از تغییرات</button>
+    </div>
+  </div>
+
+  <script>
+    // Initialize base layer
+    const osmLayer = new ol.layer.Tile({
+      source: new ol.source.OSM()
+    });
+
+    // Initialize WMS layer for laptop shops
+    const laptopLayer = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
+        url: 'http://localhost:8080/geoserver/WEBGIS_Project7/wms',
+        params: {
+          'LAYERS': 'WEBGIS_Project7:TehranLaptopShops',
+          'TILED': true
+        },
+        serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+      }),
+      visible: true,
+      id: 'TehranLaptopShops'
+    });
+
+    // Initialize vector layer for drawing
+    const drawSource = new ol.source.Vector();
+    const drawLayer = new ol.layer.Vector({
+      source: drawSource,
+      visible: true
+    });
+
+    // Initialize map
+    const map = new ol.Map({
+      target: 'map',
+      layers: [osmLayer, laptopLayer, drawLayer],
+      view: new ol.View({
+        projection: 'EPSG:4326',
+        center: [51.4, 35.7],
+        zoom: 11
+      })
+    });
+
+    // Handle layer visibility toggles
+    document.getElementById('toggle-laptop').addEventListener('change', function () {
+      laptopLayer.setVisible(this.checked);
+    });
+    document.getElementById('toggle-draw').addEventListener('change', function () {
+      drawLayer.setVisible(this.checked);
+    });
+
+    // Handle identify feature on map click
+    document.getElementById('identify-btn').addEventListener('click', () => {
+      alert("روی نقشه کلیک کنید تا اطلاعات نقطه نمایش داده شود.");
+      map.once('click', function (evt) {
+        const viewResolution = map.getView().getResolution();
+        const url = laptopLayer.getSource().getFeatureInfoUrl(
+          evt.coordinate,
+          viewResolution,
+          'EPSG:4326',
+          { 'INFO_FORMAT': 'text/html' }
+        );
+        if (url) window.open(url, '_blank');
+      });
+    });
+
+    // Export map as PNG
+    document.getElementById('export-png').addEventListener('click', function () {
+      map.once('rendercomplete', function () {
+        const mapCanvas = document.createElement('canvas');
+        const size = map.getSize();
+        mapCanvas.width = size[0];
+        mapCanvas.height = size[1];
+        const mapContext = mapCanvas.getContext('2d');
+
+        // Combine all canvas elements on the map
+        document.querySelectorAll('.ol-layer canvas').forEach(function (canvas) {
+          if (canvas.width > 0) {
+            const opacity = canvas.parentNode.style.opacity;
+            mapContext.globalAlpha = opacity === '' ? 1 : Number(opacity);
+
+            const transform = canvas.style.transform;
+            const matrix = transform
+              .match(/^matrix\(([^\)]+)\)$/)[1]
+              .split(',')
+              .map(Number);
+
+            // Apply correct transform to the main canvas
+            mapContext.setTransform(...matrix);
+            mapContext.drawImage(canvas, 0, 0);
+          }
+        });
+
+        // Create download link
+        const link = document.createElement('a');
+        link.href = mapCanvas.toDataURL('image/png');
+        link.download = 'map.png';
+        link.click();
+      });
+
+      // Trigger render to activate rendercomplete
+      map.renderSync();
+    });
+
+    // Handle drawing interactions
+    let drawInteraction = null;
+    const drawTypeSelect = document.getElementById('draw-type');
+    function addDrawInteraction(type) {
+      if (drawInteraction) {
+        map.removeInteraction(drawInteraction);
+      }
+
+      if (type === 'None') return;
+
+      drawInteraction = new ol.interaction.Draw({
+        source: drawSource,
+        type: type,
+        style: new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: '#8b0000', // Dark crimson
+            width: 2
+          }),
+          fill: new ol.style.Fill({
+            color: 'rgba(139, 0, 0, 0.2)' // Light crimson with transparency for polygons
+          }),
+          image: new ol.style.Circle({
+            radius: 6,
+            fill: new ol.style.Fill({ color: '#8b0000' }),
+            stroke: new ol.style.Stroke({
+              color: '#8b0000',
+              width: 2
+            })
+          })
+        })
+      });
+
+      map.addInteraction(drawInteraction);
+    }
+
+    drawTypeSelect.addEventListener('change', function () {
+      addDrawInteraction(this.value);
+    });
+
+    // Handle undo and clear drawing actions
+    document.getElementById('undo').addEventListener('click', function () {
+      const features = drawSource.getFeatures();
+      if (features.length > 0) {
+        drawSource.removeFeature(features[features.length - 1]);
+      }
+    });
+    document.getElementById('clear-draw').addEventListener('click', function () {
+      drawSource.clear();
+    });
+
+    // Handle editing of drawn features
+    let modifyInteraction;
+    let selectInteraction;
+    let selectedFeature = null;
+    let originalFeaturesBackup = null;
+
+    const editBtn = document.getElementById('edit-features');
+    const saveBtn = document.getElementById('save-edit');
+    const cancelBtn = document.getElementById('cancel-edit');
+    const editControls = document.getElementById('edit-controls');
+
+    // Check for existing drawings before editing
+    editBtn.addEventListener('click', function () {
+      if (drawSource.getFeatures().length === 0) {
+        alert("شما در حال حاضر ترسیمی انجام نداده‌اید.");
+        return;
+      }
+      // Disable drawing during edit mode
+      drawTypeSelect.value = "None";
+      if (drawInteraction) {
+        map.removeInteraction(drawInteraction);
+      }
+      drawTypeSelect.disabled = true;
+
+      editControls.style.display = 'block';
+
+      originalFeaturesBackup = new ol.Collection(drawSource.getFeatures().map(f => f.clone()));
+
+      // Remove previous interactions
+      if (modifyInteraction) map.removeInteraction(modifyInteraction);
+      if (selectInteraction) map.removeInteraction(selectInteraction);
+
+      // Add modify interaction for editing
+      modifyInteraction = new ol.interaction.Modify({
+        source: drawSource,
+        deleteCondition: function (event) {
+          return ol.events.condition.shiftKeyOnly(event);
+        }
+      });
+
+      map.addInteraction(modifyInteraction);
+
+      // Add select interaction for deleting with Delete key
+      selectInteraction = new ol.interaction.Select({
+        layers: [drawLayer],
+        condition: ol.events.condition.click
+      });
+      map.addInteraction(selectInteraction);
+
+      selectInteraction.on('select', function (e) {
+        selectedFeature = e.selected[0] || null;
+      });
+
+      document.addEventListener('keydown', handleDeleteKey);
+    });
+
+    // Handle feature deletion with Delete key
+    function handleDeleteKey(event) {
+      if (event.key === 'Delete' && selectedFeature) {
+        drawSource.removeFeature(selectedFeature);
+        selectedFeature = null;
+        selectInteraction.getFeatures().clear();
+      }
+    }
+
+    // Save edited features
+    saveBtn.addEventListener('click', function () {
+      if (modifyInteraction) map.removeInteraction(modifyInteraction);
+      if (selectInteraction) map.removeInteraction(selectInteraction);
+      editControls.style.display = 'none';
+      selectedFeature = null;
+      originalFeaturesBackup = null;
+      document.removeEventListener('keydown', handleDeleteKey);
+      drawTypeSelect.disabled = false;
+    });
+
+    // Cancel editing and restore original features
+    cancelBtn.addEventListener('click', function () {
+      if (modifyInteraction) map.removeInteraction(modifyInteraction);
+      if (selectInteraction) map.removeInteraction(selectInteraction);
+      drawSource.clear();
+      if (originalFeaturesBackup) {
+        originalFeaturesBackup.forEach(f => drawSource.addFeature(f.clone()));
+      }
+      selectedFeature = null;
+      editControls.style.display = 'none';
+      document.removeEventListener('keydown', handleDeleteKey);
+      drawTypeSelect.disabled = false;
+    });
+  </script>
+</body>
+</html>
