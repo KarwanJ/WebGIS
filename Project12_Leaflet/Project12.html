@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LaptopTehran-Leaflet</title>
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet WMS Plugin -->
+  <script src="https://unpkg.com/leaflet.wms@0.2.0/dist/leaflet.wms.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet Draw CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+  <script src="https://unpkg.com/leaflet-image/leaflet-image.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <div class="toolbar">
+    <div style="text-align: center;"><b>Table of Contents</b></div>
+    <br>
+    <label>
+      <input type="checkbox" id="toggle-laptop" checked>
+      <i class="fas fa-laptop"></i> Laptop Shops
+    </label>
+    <hr>
+    <button id="identify-btn" class="btn">
+      <i class="fas fa-info-circle"></i> Identify
+    </button>
+    <hr>
+    <button id="export-png-btn" class="btn">
+      <i class="fas fa-file-image"></i> Export PNG
+    </button>
+  </div>
+
+  <div id="progress-container" style="display:none;">
+    <div id="progress-bar"></div>
+    <div id="cancel-wrapper">
+      <button id="cancel-btn">
+        <i class="fas fa-times-circle"></i> Cancel
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Define the map
+    const map = L.map('map', {
+      center: [35.7, 51.4],
+      zoom: 11,
+    });
+
+    // OpenStreetMap base layer
+    const baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // WMS layer for laptop shops
+    const laptopWMSLayer = L.tileLayer.wms('http://localhost:8080/geoserver/WEBGIS_Project7/wms', {
+      layers: 'WEBGIS_Project7:TehranLaptopShops',
+      format: 'image/png',
+      transparent: true,
+      version: '1.1.0'
+    }).addTo(map);
+
+    // Layer visibility control
+    document.getElementById('toggle-laptop').addEventListener('change', function () {
+      if (this.checked) {
+        map.addLayer(laptopWMSLayer);
+      } else {
+        map.removeLayer(laptopWMSLayer);
+      }
+    });
+
+    // Layer for drawn shapes
+    const drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+
+    // Draw tool settings
+    const drawControl = new L.Control.Draw({
+      edit: {
+        featureGroup: drawnItems,
+        remove: true
+      },
+      draw: {
+        polygon: true,
+        polyline: true,
+        rectangle: true,
+        circle: true,
+        marker: true,
+        circlemarker: false
+      }
+    });
+    map.addControl(drawControl);
+
+    // Event for saving drawn shapes on the map
+    map.on(L.Draw.Event.CREATED, function (event) {
+      const layer = event.layer;
+      drawnItems.addLayer(layer);
+    });
+
+    // Identify feature
+    document.getElementById('identify-btn').addEventListener('click', () => {
+      alert("Click on the map to display point information.");
+
+      map.once('click', function (e) {
+        const point = map.latLngToContainerPoint(e.latlng, map.getZoom());
+        const size = map.getSize();
+
+        const params = {
+          request: 'GetFeatureInfo',
+          service: 'WMS',
+          srs: 'EPSG:4326',
+          styles: '',
+          transparent: true,
+          version: '1.1.0',
+          format: 'image/png',
+          bbox: map.getBounds().toBBoxString(),
+          height: size.y,
+          width: size.x,
+          layers: laptopWMSLayer.wmsParams.layers,
+          query_layers: laptopWMSLayer.wmsParams.layers,
+          info_format: 'text/html',
+          x: Math.round(point.x),
+          y: Math.round(point.y)
+        };
+
+        const url = laptopWMSLayer._url + L.Util.getParamString(params, laptopWMSLayer._url, true);
+
+        window.open(url, '_blank');
+      });
+    });
+
+    document.getElementById('export-png-btn').addEventListener('click', () => {
+      leafletImage(map, function (err, canvas) {
+        if (err) {
+          alert('Error in exporting');
+          return;
+        }
+        const img = document.createElement('a');
+        img.href = canvas.toDataURL();
+        img.download = 'map.png';
+        img.click();
+      });
+    });
+
+    let exportInterval;
+    let exportCancelled = false;
+
+    document.getElementById('export-png-btn').addEventListener('click', () => {
+      const container = document.getElementById('progress-container');
+      const bar = document.getElementById('progress-bar');
+
+      container.style.display = 'block';
+      bar.style.width = '0%';
+
+      let progress = 0;
+      exportCancelled = false;
+
+      exportInterval = setInterval(() => {
+        if (exportCancelled) {
+          clearInterval(exportInterval);
+          container.style.display = 'none';
+          bar.style.width = '0%';
+          return;
+        }
+
+        if (progress < 95) {
+          progress += 1;
+          bar.style.width = progress + '%';
+        }
+      }, 100);
+
+      leafletImage(map, function (err, canvas) {
+        clearInterval(exportInterval);
+
+        if (exportCancelled) {
+          container.style.display = 'none';
+          bar.style.width = '0%';
+          return;
+        }
+
+        bar.style.width = '100%';
+
+        setTimeout(() => {
+          container.style.display = 'none';
+          bar.style.width = '0%';
+        }, 600);
+
+        if (err) {
+          alert('Error in exporting');
+          return;
+        }
+
+        const img = document.createElement('a');
+        img.href = canvas.toDataURL();
+        img.download = 'map.png';
+        img.click();
+      });
+    });
+
+    document.getElementById('cancel-btn').addEventListener('click', () => {
+      exportCancelled = true;
+    });
+  </script>
+</body>
+
+</html>

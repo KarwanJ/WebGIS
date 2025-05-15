@@ -1,0 +1,216 @@
+/* Global styles for HTML and body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+/* Styles for the map container */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Header Section ===== */
+/* Styles for the site header */
+.site-header {
+  width: 100%;
+  background: linear-gradient(to right, #b3124b, #730c30);
+  /* Gradient background from light to dark red */
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+  position: relative;
+  z-index: 1500;
+  /* Ensure header is above other elements */
+  text-align: center;
+}
+
+/* Styles for header content container */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Styles for icons within header content */
+.header-content i {
+  font-size: 24px;
+}
+
+/* Styles for the header title */
+.header-content h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ===== Toolbar Section ===== */
+/* Styles for the toolbar */
+.toolbar {
+  position: absolute;
+  top: 60px;
+  /* Distance from the header */
+  right: 15px;
+  background: rgba(252, 228, 236, 0.9);
+  /* Semi-transparent background */
+  backdrop-filter: blur(8px);
+  /* Blur effect for modern look */
+  padding: 18px 16px;
+  z-index: 1000;
+  /* Ensure toolbar is above map */
+  color: #3b0a22;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(59, 10, 34, 0.2);
+  /* Shadow for depth */
+  min-width: 220px;
+}
+
+/* Styles for toolbar labels */
+.toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* ===== Buttons Section ===== */
+/* General button styles */
+.btn {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #b3124b, #730c30);
+  /* Gradient background for buttons */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  /* Smooth transition for hover effects */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Button hover effects */
+.btn:hover {
+  background: linear-gradient(135deg, #8e0e3f, #5a0825);
+  /* Darker gradient on hover */
+  transform: translateY(-2px);
+  /* Slight lift effect */
+  box-shadow: 0 4px 12px rgba(115, 12, 48, 0.3);
+  /* Shadow on hover */
+}
+
+/* Styles for toolbar select and button elements */
+.toolbar select,
+.toolbar button {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Styles for disabled select elements */
+.toolbar select:disabled {
+  background-color: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Margin for icons in buttons and labels */
+.btn i,
+#cancel-btn i,
+.toolbar label i {
+  margin-left: 6px;
+}
+
+/* ===== Toolbar Sections ===== */
+/* Styles for sections within the toolbar */
+.toolbar .section {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  /* Dashed border for separation */
+}
+
+/* Remove border for the last section */
+.toolbar .section:last-child {
+  border-bottom: none;
+}
+
+/* Styles for section headers */
+.section-header h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #730c30;
+  border-bottom: 2px solid #b3124b;
+  /* Underline effect */
+  padding-bottom: 4px;
+}
+
+/* ===== Progress Bar Section ===== */
+/* Styles for the progress bar container */
+#progress-container {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  /* Center the container */
+  width: 320px;
+  background: rgba(59, 10, 34, 0.2);
+  /* Semi-transparent background */
+  border-radius: 12px;
+  z-index: 2000;
+  /* Ensure progress bar is on top */
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(115, 12, 48, 0.3);
+  /* Shadow for depth */
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* Styles for the progress bar */
+#progress-bar {
+  height: 28px;
+  width: 0%;
+  /* Initial width for animation */
+  background: linear-gradient(90deg, #b3124b, #730c30);
+  /* Gradient fill */
+  transition: width 0.4s ease;
+  /* Smooth width transition */
+  border-radius: 12px 12px 0 0;
+}
+
+/* Styles for the cancel button wrapper */
+#cancel-wrapper {
+  margin-top: 8px;
+}
+
+/* Styles for the cancel button */
+#cancel-btn {
+  margin-top: 5px;
+  padding: 6px 12px;
+  font-size: 13px;
+  background-color: #b3124b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.2s ease;
+  /* Smooth background transition */
+}
+
+/* Cancel button hover effect */
+#cancel-btn:hover {
+  background-color: #8e0e3f;
+  /* Darker shade on hover */
+}
