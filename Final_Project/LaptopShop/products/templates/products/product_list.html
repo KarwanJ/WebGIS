@@ -1,0 +1,100 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+{% block title %} {% trans "Product List" %} {% endblock %}
+
+{% block content %}
+    <div class="container-fluid pt-5 pb-3">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+            <span class="bg-secondary pr-3">{% trans "Recent Products" %}</span>
+        </h2>
+        <div class="row px-xl-5">
+            {% for product in products %}
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <a href="{{ product.get_absolute_url }}">
+                                {% if product.image %}
+                                    <img class="img-fluid w-100" src="{{ product.image.url }}" alt="{{ product.title }}">
+                                {% else %}
+                                    <img class="img-fluid w-100" src="{% static 'img/placeholder.jpg' %}" alt="No Image">
+                                {% endif %}
+                            </a>
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href="{{ product.get_absolute_url }}">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                                {% if user.is_authenticated %}
+                                    {% if product in user.wishlists.all %}
+                                        <a class="btn btn-outline-dark btn-square" href="{% url 'remove-from-wishlist' product.id %}">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    {% else %}
+                                        <a class="btn btn-outline-dark btn-square" href="{{ product.get_absolute_url }}">
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    {% endif %}
+                                {% else %}
+                                    <a class="btn btn-outline-dark btn-square" href="{% url 'account:user_login' %}">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                {% endif %}
+                                <a class="btn btn-outline-dark btn-square" href="{{ product.get_absolute_url }}">
+                                    <i class="fa fa-sync-alt"></i>
+                                </a>
+                                <a class="btn btn-outline-dark btn-square" href="{{ product.get_absolute_url }}">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                {% if product.discount %}
+                                    <h5 class="text-success">
+                                        {{ product.discount_price|intcomma:False }} {% trans '$' %}
+                                    </h5>
+                                    <h6 class="text-muted ml-2">
+                                        <del>{{ product.price|intcomma:False }} {% trans '$' %}</del>
+                                    </h6>
+                                {% else %}
+                                    <h5 class="text-success">
+                                        {{ product.price|intcomma:False }} {% trans '$' %}
+                                    </h5>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                {% for i in product.average_stars %}
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                {% endfor %}
+                                <small><span>Comments</span>({{ product.comments.count }})</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    {% if page_obj.has_previous %}
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    {% endif %}
+                </li>
+                <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                <li class="page-item">
+                    {% if page_obj.has_next %}
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

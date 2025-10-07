@@ -1,0 +1,54 @@
+
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Product Management</h2>
+
+    <!-- Success Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Add Product Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>Add New Product</h4>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy}}
+                <button type="submit" class="btn btn-success">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product List -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.price }} Toman</td>
+                    <td>{% if product.active %} ✅ Active {% else %} ❌ Inactive {% endif %}</td>
+                    <td><img src="{{ product.image.url }}" width="50"></td>
+                    <td>
+                        <a href="{% url 'delete-product' product.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

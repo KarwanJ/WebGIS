@@ -1,0 +1,327 @@
+/* ============================================= */
+/* ==   فایل نهایی استایل برای صفحه نقشه   == */
+/* ============================================= */
+
+/* تعریف متغیر برای ارتفاع کلی هدر */
+:root {
+    --header-total-height: 145px; /* این عدد مجموع ارتفاع تخمینی هدر و نوبار است */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    /* overflow: hidden; این خط حذف می‌شود تا در صورت نیاز اسکرول فعال باشد */
+}
+
+/* مرحله ۱: تنظیم موقعیت نقشه و سایدبار با استفاده از متغیر */
+#gis {
+    width: 100%;
+    height: calc(100vh - var(--header-total-height)); /* ارتفاع: کل صفحه منهای ارتفاع هدر */
+    position: absolute;
+    top: var(--header-total-height); /* فاصله از بالا: به اندازه ارتفاع هدر */
+    left: 0;
+    z-index: 1;
+}
+
+.sidebar {
+    position: absolute;
+    /* این محاسبه جدید، سایدبار را همیشه پایین هدر نگه می‌دارد */
+    top: calc(var(--header-total-height) + 15px);
+    right: 15px;
+    z-index: 1000;
+}
+
+/* مرحله ۲: تنظیمات جزئی هدر و نوبار */
+.bg-light.py-3.px-xl-5 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.container-fluid.bg-dark .navbar-dark .navbar-nav .nav-link {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+/* مرحله ۳: استایل‌های جدید و زیباسازی شده سایدبار */
+.sidebar {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    width: 280px;
+    max-width: 280px;
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #3D464D;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.sidebar .btn {
+    background: #FFD333;
+    color: #3D464D;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    transition: background-color 0.2s ease-in-out;
+    transform: none;
+    box-shadow: none;
+    background-image: none;
+}
+
+.sidebar .btn:hover {
+    background: #e6b400;
+    color: #3D464D;
+    transform: none;
+    box-shadow: none;
+}
+
+#search-container {
+    margin-bottom: 0;
+    border-top: 1px solid #EEEEEE;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#search-container > * {
+    margin-top: 0 !important;
+}
+
+/* مرحله ۴: استایل‌های جدید و زیباسازی شده Progress Bar */
+#progress-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    z-index: 2000;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 1px solid #EAEAEA;
+}
+
+#progress-container::before {
+    content: 'Exporting Map ...';
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #3D464D;
+    margin-bottom: 15px;
+}
+
+#progress-bar {
+    height: 15px;
+    width: 0%;
+    background-color: #FFD333;
+    border-radius: 15px;
+    transition: width 0.3s ease-in-out;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+}
+
+#cancel-btn {
+    margin-top: 20px;
+    background-color: #6C757D;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    width: auto;
+}
+
+#cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* مرحله ۵: استایل‌های باقی‌مانده نقشه */
+.legend {
+    line-height: 18px;
+    color: #555;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 6px 8px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-top.leaflet-left {
+    margin-top: 15px;
+}
+
+.leaflet-popup-content {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+
+/* ============================================= */
+/* ==   استایل جدید برای فرم Create New POI   == */
+/* ============================================= */
+
+/* پس‌زمینه نیمه‌شفاف کل صفحه */
+/* کد صحیح جدید */
+
+/* استایل پیش‌فرض مودال (مخفی) */
+#poi-form-modal,
+#province-form-modal {
+    display: none; /* در حالت عادی مخفی است */
+    position: fixed;
+    z-index: 2500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* این سه خط برای قرار دادن فرم در وسط صفحه است */
+    justify-content: center;
+    align-items: center;
+}
+
+/* کلاسی که با جاوااسکریپت اضافه می‌شود تا مودال را نمایش دهد */
+#poi-form-modal.visible,
+#province-form-modal.visible {
+    display: flex;
+}
+
+/* کادر اصلی فرم */
+.poi-form-content {
+    background: #FFFFFF;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+}
+
+/* عنوان فرم */
+.poi-form-content h2 {
+    color: #3D464D;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+/* لیبل‌های فرم */
+#poi-form label,
+#province-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #6C757D;
+}
+
+/* اینپوت‌ها و تکست‌اریا */
+#poi-form input[type="text"],
+#poi-form textarea,
+#province-form input[type="text"],
+#province-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* افکت زیبا هنگام کلیک روی اینپوت */
+#poi-form input[type="text"]:focus,
+#poi-form textarea:focus,
+#province-form input[type="text"]:focus,
+#province-form input[type="number"]:focus {
+    outline: none;
+    border-color: #FFD333; /* رنگ اصلی تم */
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.25);
+}
+
+
+/* کانتینر دکمه‌ها برای چیدمان */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end; /* دکمه‌ها در سمت راست */
+    gap: 10px; /* فاصله بین دکمه‌ها */
+    margin-top: 20px;
+}
+
+/* استایل مشترک دکمه‌های فرم */
+.form-buttons .btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+/* استایل دکمه اصلی (ذخیره) */
+.form-buttons .btn.btn-primary {
+    background-color: #FFD333; /* رنگ اصلی تم */
+    color: #3D464D;
+}
+
+.form-buttons .btn.btn-primary:hover {
+    background-color: #e6b400; /* کمی تیره‌تر */
+}
+
+/* استایل دکمه دوم (کنسل) */
+.form-buttons .btn.btn-secondary {
+    background-color: #E9ECEF; /* خاکستری روشن */
+    color: #6C757D;
+}
+
+.form-buttons .btn.btn-secondary:hover {
+    background-color: #d3d9df;
+}
+
+
+/* ============================================= */
+/* ==        تغییر فونت نوبار         == */
+/* ============================================= */
+
+.container-fluid.bg-dark .navbar-nav .nav-link,
+.container-fluid.bg-dark .navbar-brand,
+.container-fluid.bg-dark .dropdown-menu .dropdown-item {
+    font-family: 'Vazirmatn', sans-serif !important;
+    font-weight: 500; /* استفاده از وزن متوسط برای ظاهری مدرن */
+}
+
+/* استایل خاص برای آیتم خوشامدگویی به کاربر */
+.navbar-nav .ml-auto.align-items-center .nav-link span {
+    font-size: 1.05rem; /* کمی بزرگتر برای تاکید */
+}
+
+
+

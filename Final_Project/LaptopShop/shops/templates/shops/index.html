@@ -1,0 +1,958 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Laptop_Shop</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>National Laptop Stores</title>
+    {% load leaflet_tags %}
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <link rel="stylesheet" href="{% static 'shops/map_includes/stylemap.css' %}">
+    <script src="https://unpkg.com/leaflet-image@0.4.0/leaflet-image.js"></script>
+    <script type="text/javascript" src="{% static 'leaflet.ajax.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    <style>
+        .leaflet-control-container {
+            z-index: 20000 !important;
+        }
+
+        .sidebar {
+            margin-top: 170px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Topbar Start -->
+<div class="container-fluid">
+
+    {#    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">#}
+    <div class="row align-items-center top-bar-custom py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-4">
+            <a href="" class="text-decoration-none">
+                <span class="h1 text-uppercase text-primary bg-dark px-2">LAP</span>
+                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">MAP</span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-6 text-left">
+            <form class="d-flex mx-3" action="{% url 'product_search' %}" method="get">
+                <input class="form-control form-control-sm mr-2" type="search" name="query"
+                       placeholder="Search product...">
+                <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+            <p class="m-0">Designed By Karwan Jalali</p>
+            <h5 class="m-0">09186651131</h5>
+        </div>
+
+    </div>
+</div>
+<!-- Topbar End -->
+<div class="container-fluid bg-dark mb-15">
+    <div class="row px-xl-5">
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                <a href="{% url 'home' %}" class="text-decoration-none d-block d-lg-none">
+                    <span class="h1 text-uppercase text-dark bg-light px-2">Laptop</span>
+                    <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'product-list' %}" class="nav-item nav-link">Shop</a>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="categoryDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-list-alt"></i> Categories
+                            </a>
+                            <div class="dropdown-menu border-0 rounded shadow-sm bg-light"
+                                 aria-labelledby="categoryDropdown">
+                                {% for category in categories %}
+                                    <a class="dropdown-item text-dark" href="{% url 'category-products' category.id %}">
+                                        <i class="fa fa-tag"></i> {{ category.name }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact us</a>
+
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'user_orders' %}" class="nav-item nav-link">Chart</a>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'viewer' %}" class="nav-item nav-link">LapMap</a>
+                        {% endif %}
+
+                        <ul class="navbar-nav ml-auto align-items-center">
+                            {% if request.user.is_authenticated %}
+                                <li class="nav-item dropdown ml-auto">
+                                    <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#"
+                                       id="userDropdown" role="button" data-toggle="dropdown">
+                                        {% if user.profile.image %}
+                                            <img src="{{ user.profile.image.url }}" height="30px" width="30px"
+                                                 class="rounded-circle">
+                                        {% else %}
+                                            <i class="fa fa-user-circle fa-lg"></i>
+                                        {% endif %}
+                                        <span class="ml-2"><span>Welcome </span><span
+                                                style="font-weight: bold; color: #FFD700; font-size: 1.2rem; text-transform: capitalize;">{{ user.username }}</span></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right bg-light border-0 rounded">
+                                        <a class="dropdown-item" href="{% url 'account:profile_edit' %}">
+                                            <i class="fa fa-user-edit mr-2"></i> Edit Profile
+                                        </a>
+                                        <a class="dropdown-item" href="{% url 'account:logout_user' %}">
+                                            <i class="fa fa-sign-out-alt mr-2"></i> Logout
+                                        </a>
+                                    </div>
+                                </li>
+                            {% else %}
+                                <li class="nav-item ml-auto">
+                                    <a class="nav-link text-white" href="{% url 'account:user_login' %}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{% url 'account:user_register' %}">Register</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                        {% if user.is_staff %}
+                            <a href="{% url 'product-management' %}" class="nav-item nav-link">Management</a>
+                        {% endif %}
+
+
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+{#<div class="site-header">#}
+{#    <div class="header-content"><h1>Laptop Stores</h1></div>#}
+{#</div>#}
+
+<div class="sidebar">
+    <label><input type="checkbox" id="toggle-province" checked> Province Layer</label>
+    <label><input type="checkbox" id="toggle-choropleth" checked> Province Layer (Choropleth)</label>
+    <label><input type="checkbox" id="toggle-poi" checked> POI Layer</label>
+    <button id="export-png-btn" class="btn">🖼️ Export as PNG</button>
+    <button id="export-selected-btn" class="btn" style="display: none;">✔️ Export Selected POIs</button>
+
+
+    <div id="search-container" style="margin-bottom: 15px;">
+        <input type="text" id="search-input" placeholder="Search for a store..."
+               style="width: 95%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        <button id="search-btn" class="btn" style="margin-top: 5px;">🔍 Search</button>
+
+        <div id="search-nav-container" style="display: none; margin-top: 5px; text-align: center;">
+            <button id="prev-result-btn" class="btn" style="width: auto; padding: 5px 10px;">⬆️ Prev</button>
+            <span id="search-counter" style="margin: 0 10px; font-weight: bold;"></span>
+            <button id="next-result-btn" class="btn" style="width: auto; padding: 5px 10px;">Next ⬇️</button>
+        </div>
+        <button id="clear-search-btn" class="btn" style="display: none; margin-top: 5px; background: #6c757d;">End
+            Search
+        </button>
+    </div>
+
+</div>
+
+<div id="gis"></div>
+
+<div id="progress-container" style="display: none;">
+    <div id="progress-bar"></div>
+    <button id="cancel-btn">Cancel</button>
+</div>
+
+{% if request.user.is_superuser %}
+    <div id="poi-form-modal">
+        <div class="poi-form-content">
+            <h2>Create New POI</h2>
+            <form id="poi-form">
+                <label for="poi-name">Name:</label>
+                <input type="text" id="poi-name" name="name" required>
+
+                <label for="poi-description">Description:</label>
+                <textarea id="poi-description" name="description" rows="4"></textarea>
+
+                <div class="form-buttons">
+                    <button type="button" id="cancel-poi-form" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save POI</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="province-form-modal">
+        <div class="poi-form-content"><h2>Create New Province</h2>
+            <form id="province-form">
+                <label for="province-provincename">Province Name:</label>
+                <input type="text" id="province-provincename" name="province_name" required>
+
+                <label for="province-name">English Name:</label>
+                <input type="text" id="province-name" name="name" required>
+
+                <label for="province-region">Region:</label>
+                <input type="number" id="province-region" name="region" required>
+
+                <div class="form-buttons">
+                    <button type="button" id="cancel-province-form" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Province</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}
+
+
+<script type="text/javascript">
+    var map = L.map('gis', {
+        center: [32.4279, 53.6880],
+        zoom: 5
+    });
+
+
+    // -- شروع کد جدید برای انتخاب پس‌زمینه --
+
+    // مرحله ۱: تعریف کردن تمام پس‌زمینه‌هایی که می‌خواهیم
+    var cartoDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+    });
+
+    var cartoLight = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+    });
+
+    var esriImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri'
+    });
+
+    var osmDefault = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    });
+
+
+    // مرحله ۲: ساخت یک آبجکت برای کنترلر لایه‌ها
+    var baseMaps = {
+        "Light": cartoLight,
+        "Dark": cartoDark,
+        "Satellite ": esriImagery,
+        "Standard": osmDefault
+    };
+
+    // مرحله ۳: اضافه کردن کنترلر به نقشه
+    L.control.layers(baseMaps).addTo(map);
+
+    // مرحله ۴: انتخاب و اضافه کردن پس‌زمینه پیش‌فرض
+    cartoLight.addTo(map);
+
+    // -- پایان کد جدید --
+
+    var provinceRenderer = L.canvas({padding: 0.5});
+
+    let provinceLoaded = false;
+    let poiLoaded = false;
+    let progressInterval = null;
+
+    var provinceLayer = new L.GeoJSON.AJAX("{% url 'getData' %}", {
+        renderer: provinceRenderer,
+        onEachFeature: function (feature, layer) {
+            var popupContent = "";
+            for (var key in feature.properties) {
+                popupContent += `<b>${key}:</b> ${feature.properties[key]}<br>`;
+            }
+            layer.bindPopup(popupContent);
+        }
+    }).on('data:loaded', function () {
+        provinceLoaded = true;
+        console.log('Province layer loaded.');
+    });
+    provinceLayer.addTo(map);
+
+
+    // Define the custom laptop icon with a smaller size
+    var laptopIcon = L.icon({
+        iconUrl: '{% static "img/laptop_cart2.png" %}',
+        iconSize: [19, 19], // سایز آیکون به ۲۶ در ۲۶ پیکسل کاهش یافت
+        iconAnchor: [13, 26], // نقطه اتصال متناسب با سایز جدید (پایین وسط)
+        popupAnchor: [0, -26]  // پاپ‌آپ بالای آیکون باز می‌شود
+    });
+
+
+    // Modify the POI layer to use the new icon
+    var poiLayer = new L.GeoJSON.AJAX("{% url 'getPOIData' %}", {
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {icon: laptopIcon});
+        },
+        onEachFeature: function (feature, layer) {
+            var popupContent = "";
+            for (var key in feature.properties) {
+                popupContent += `<b>${key}:</b> ${feature.properties[key]}<br>`;
+            }
+            layer.bindPopup(popupContent);
+        }
+    }).on('data:loaded', function () {
+        poiLoaded = true;
+        console.log('POI layer loaded.');
+    });
+    poiLayer.addTo(map);
+
+
+    // Layer toggle controls
+    document.getElementById('toggle-province').addEventListener('change', function () {
+        if (this.checked) {
+            map.addLayer(provinceLayer);
+        } else {
+            map.removeLayer(provinceLayer);
+        }
+    });
+    document.getElementById('toggle-poi').addEventListener('change', function () {
+        if (this.checked) {
+            map.addLayer(poiLayer);
+        } else {
+            map.removeLayer(poiLayer);
+        }
+    });
+
+    // Export and progress bar logic remains unchanged
+    const exportBtn = document.getElementById('export-png-btn');
+    const progressContainer = document.getElementById('progress-container');
+    const progressBar = document.getElementById('progress-bar');
+    const cancelBtn = document.getElementById('cancel-btn');
+
+    exportBtn.addEventListener('click', () => {
+        if (!provinceLoaded || !poiLoaded) {
+            alert('Please wait for the layers to fully load.');
+            return;
+        }
+
+        let currentProgress = 0;
+        progressBar.style.width = '0%';
+        progressContainer.style.display = 'block';
+
+        progressInterval = setInterval(() => {
+            currentProgress += 5;
+            if (currentProgress > 95) {
+                currentProgress = 95;
+            }
+            progressBar.style.width = currentProgress + '%';
+        }, 100);
+
+        setTimeout(() => {
+            leafletImage(map, function (err, canvas) {
+                clearInterval(progressInterval);
+                progressBar.style.width = '100%';
+
+                if (err) {
+                    progressContainer.style.display = 'none';
+                    alert('Error during export: ' + err.message);
+                    console.error('Export error:', err);
+                    return;
+                }
+
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                    const img = document.createElement('a');
+                    img.href = canvas.toDataURL();
+                    img.download = 'map_export.png';
+                    img.click();
+                }, 300);
+            });
+        }, 500);
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        if (progressInterval) {
+            clearInterval(progressInterval);
+        }
+        progressContainer.style.display = 'none';
+        console.log('Export cancelled by user.');
+    });
+
+
+    // --- Start of New Code for Choropleth Map ---
+    // تابع getColor جدید با پالت رنگی آبی و حرفه‌ای
+    function getColor(count) {
+        return count > 20 ? '#0052D4' :  // تیره‌ترین آبی
+            count > 10 ? '#1E90FF' :
+                count > 5 ? '#28B5E1' :
+                    count > 2 ? '#63E6E6' :
+                        count > 0 ? '#A7F5F5' :
+                            '#E0FEFE'; // روشن‌ترین آبی برای استان‌های بدون فروشگاه
+    }
+
+
+    // 2. Style function for the choropleth layer
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.poi_count),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+
+    // 3. Functions for mouse hover interaction
+    function highlightFeature(e) {
+        var layer = e.target;
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+    }
+
+    function resetHighlight(e) {
+        choroplethLayer.resetStyle(e.target);
+    }
+
+    // 4. onEachFeature function to add listeners and popups
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+        });
+        layer.bindPopup(
+            `<b>Province: </b> ${feature.properties.province_name}<br>` +
+            `<b>Number of stores: </b> ${feature.properties.poi_count}`
+        );
+    }
+
+    // Find and REPLACE your 'var choroplethLayer = ...' block with this enhanced version
+
+    var choroplethLayer = new L.GeoJSON.AJAX("{% url 'getChoroplethData' %}", {
+        style: style,
+        onEachFeature: function (feature, layer) {
+            // --- 1. Highlight on Hover (same as before) ---
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight
+            });
+
+            // --- 2. Show basic info in a static popup (the count) ---
+            // This popup shows up instantly on hover/click without needing a new request
+            const initialPopupContent = `<b>Province: </b> ${feature.properties.province_name}<br>` +
+                `<b>Number of all stores: </b> ${feature.properties.poi_count}`;
+            layer.bindPopup(initialPopupContent);
+
+            // --- 3. On click, fetch and display detailed stats ---
+            layer.on('click', function (e) {
+                const provinceId = feature.properties.province_id;
+                const statsUrl = `/shops/api/province-stats/${provinceId}/`;// Construct the URL
+                // Show a "loading" message in the popup immediately
+                layer.setPopupContent('<b>Province: </b> ' + feature.properties.province_name + '<br><em>در حال بارگذاری آمار...</em>').openPopup();
+
+                // Fetch the detailed stats from the backend
+                fetch(statsUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // Build the new, detailed content for the popup
+                            let detailedPopupContent = `<h4>آمار استان ${data.province_name}</h4>` +
+                                `<p><b>تعداد کل فروشگاه‌ها: ${data.poi_count}</b></p>`;
+
+                            if (data.poi_count > 0) {
+                                detailedPopupContent += '<b>لیست فروشگاه‌ها:</b><ul>';
+                                data.poi_names.forEach(name => {
+                                    detailedPopupContent += `<li>${name}</li>`;
+                                });
+                                detailedPopupContent += '</ul>';
+                            }
+
+                            // Update the popup with the new content
+                            layer.setPopupContent(detailedPopupContent);
+                        } else {
+                            layer.setPopupContent('خطا در دریافت اطلاعات: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching stats:', error);
+                        layer.setPopupContent('خطا در برقراری ارتباط با سرور.');
+                    });
+
+            });
+        }
+    }).addTo(map);
+
+
+    // 6. Create and add the Legend to the map
+    var legend = L.control({position: 'bottomleft'});
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 1, 2, 5, 10, 20],
+            labels = ['<strong>Number of stores</strong>'];
+
+        for (var i = 0; i < grades.length; i++) {
+            var from = grades[i];
+            var to = grades[i + 1];
+            labels.push(
+                '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                from + (to ? '&ndash;' + to : '+')
+            );
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+    legend.addTo(map);
+
+
+    // 7. Add Event Listener for the new checkbox
+    document.getElementById('toggle-choropleth').addEventListener('change', function () {
+        if (this.checked) {
+            map.addLayer(choroplethLayer);
+        } else {
+            map.removeLayer(choroplethLayer);
+        }
+    });
+
+    // Tip: To avoid showing both province layers at once, you might want to uncheck
+    // the other one when this one is checked. For now, this is the simplest way.
+
+    // --- End of New Code for Choropleth Map ---
+
+
+    // =======================================================================
+    // == START: UNIFIED CODE for Selection, Export, and Creation           ==
+    // =======================================================================
+
+    // --- 1. Define all variables and icons needed for new features ---
+    let selectedPoiIds = new Set();
+    let newPoiLatLng = null; // To store coordinates of a newly created point
+
+    // NOTE: The 'exportBtnPOI' ID needs to be in your HTML. Add this to your sidebar:
+    // <button id="export-selected-btn" class="btn" style="display: none;">✔️ Export Selected POIs</button>
+    const exportBtnPOI = document.getElementById('export-selected-btn');
+
+    // NOTE: The form modal elements need to be in your HTML body.
+    const poiModal = document.getElementById('poi-form-modal');
+    const poiForm = document.getElementById('poi-form');
+    const cancelPoiFormBtn = document.getElementById('cancel-poi-form');
+
+    const provinceModal = document.getElementById('province-form-modal');
+    const provinceForm = document.getElementById('province-form');
+    const cancelProvinceFormBtn = document.getElementById('cancel-province-form');
+    let newProvinceGeoJSON = null; // To store the drawn polygon geometry
+
+
+    var selectedLaptopIcon = L.icon({
+        iconUrl: '{% static "img/laptop_cart2_selected.png" %}', // Make sure you have this icon file
+        iconSize: [19, 19],
+        iconAnchor: [13, 26],
+        popupAnchor: [0, -26]
+    });
+
+
+    // --- 2. Create a reusable function to reset the selection state ---
+    function resetSelection() {
+        poiLayer.eachLayer(function (layer) {
+            // It's safer to check if setIcon exists, in case the layer is not a marker
+            if (layer.setIcon) {
+                layer.setIcon(laptopIcon);
+            }
+        });
+        selectedPoiIds.clear();
+        if (exportBtnPOI) {
+            exportBtnPOI.style.display = 'none';
+        }
+        console.log("Selection has been reset.");
+    }
+
+
+    // --- 3. Initialize Leaflet.draw controls ONCE with all tools enabled ---
+    {% if request.user.is_superuser %}
+
+
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            draw: {
+                rectangle: true, // For selection
+                marker: true,    // For creation
+                polygon: true,  // Other tools disabled
+                polyline: false,
+                circle: false,
+                circlemarker: false
+            },
+
+        });
+        map.addControl(drawControl);
+
+
+        // --- 4. Create ONE event handler for ALL drawn shapes ---
+        map.on(L.Draw.Event.CREATED, function (e) {
+            var type = e.layerType;
+            var layer = e.layer;
+
+            // --- A. If a RECTANGLE is drawn (for selecting points) ---
+            if (type === 'rectangle') {
+                var selectionBounds = layer.getBounds();
+                resetSelection(); // Clear previous selections
+
+                poiLayer.eachLayer(function (poiMarker) {
+                    if (poiMarker.getLatLng && selectionBounds.contains(poiMarker.getLatLng())) {
+                        const poiId = poiMarker.feature.id;
+                        selectedPoiIds.add(poiId);
+                        poiMarker.setIcon(selectedLaptopIcon);
+                    }
+                });
+
+                if (selectedPoiIds.size > 0 && exportBtnPOI) {
+                    exportBtnPOI.style.display = 'block'; // Show export button
+                }
+            }
+            // --- B. If a MARKER is drawn (for creating a new point) ---
+            else if (type === 'marker') {
+                newPoiLatLng = layer.getLatLng(); // Store coordinates
+                if (poiModal) {
+                    // جایگزین شود با:
+                    poiModal.classList.add('visible');
+                }
+            }
+
+// --- C. If a POLYGON is drawn (for creating a new province) ---
+            else if (type === 'polygon') {
+                newProvinceGeoJSON = layer.toGeoJSON().geometry; // Store polygon geometry as GeoJSON
+                if (provinceModal) {
+                    provinceModal.classList.add('visible'); // Show the province form
+                }
+            }
+
+
+        });
+    {% endif %}
+
+
+    // --- 5. Event listener for the EXPORT button ---
+
+    if (exportBtnPOI) {
+        exportBtnPOI.addEventListener('click', function () {
+            if (selectedPoiIds.size === 0) {
+                alert('No POIs selected.');
+                return;
+            }
+            const idsString = Array.from(selectedPoiIds).join(',');
+            const downloadUrl = `{% url 'export_pois' %}?ids=${idsString}`;
+            window.location.href = downloadUrl;
+            setTimeout(resetSelection, 500);
+        });
+    }
+
+    // --- 6. Event listeners for the POI CREATION FORM ---
+    if (poiForm) {
+        poiForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const dataToSend = {
+                name: document.getElementById('poi-name').value,
+                description: document.getElementById('poi-description').value,
+                lat: newPoiLatLng.lat,
+                lng: newPoiLatLng.lng
+            };
+
+            function getCookie(name) { // Helper function for Django's security
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+            fetch("{% url 'create_poi' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify(dataToSend)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert(data.message);
+// جایگزین شود با:
+                        poiModal.classList.remove('visible');
+                        poiForm.reset();
+                        poiLayer.refresh(); // Crucial: refreshes the layer to show the new point
+                        // === THIS IS THE NEW LINE ===
+                        // Pan and zoom the map to the newly created point's location
+                        map.setView(newPoiLatLng, 15); // 15 is a good zoom level, you can change it
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while saving the POI.');
+                });
+        });
+    }
+
+    if (cancelPoiFormBtn) {
+        cancelPoiFormBtn.addEventListener('click', function () {
+            if (poiModal) {
+// جایگزین شود با:
+                poiModal.classList.remove('visible');
+                poiForm.reset();
+            }
+        });
+    }
+
+    // =======================================================================
+    // == END: UNIFIED CODE                                                 ==
+    // =======================================================================
+    // =======================================================================
+    // == START: Province Creation Form Logic                               ==
+    // =======================================================================
+
+    if (provinceForm) {
+        provinceForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const dataToSend = {
+                province_name: document.getElementById('province-provincename').value,
+                name: document.getElementById('province-name').value,
+                region: document.getElementById('province-region').value,
+                geometry: newProvinceGeoJSON // The polygon geometry we saved earlier
+            };
+
+            // We can reuse the getCookie function
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+            fetch("{% url 'create_province' %}", { // Use the new URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify(dataToSend)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert(data.message);
+                        provinceModal.classList.remove('visible');
+                        provinceForm.reset();
+
+                        // Refresh both province layers to show the new one
+                        provinceLayer.refresh();
+                        choroplethLayer.refresh();
+
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while saving the Province.');
+                });
+        });
+    }
+
+    if (cancelProvinceFormBtn) {
+        cancelProvinceFormBtn.addEventListener('click', function () {
+            if (provinceModal) {
+                provinceModal.classList.remove('visible');
+                provinceForm.reset();
+            }
+        });
+    }
+
+    // ===================================================================
+    // == START: Advanced Search Code with Navigation and Clear         ==
+    // ===================================================================
+
+    // --- 1. Get references to ALL search elements ---
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const searchNavContainer = document.getElementById('search-nav-container');
+    const prevResultBtn = document.getElementById('prev-result-btn');
+    const nextResultBtn = document.getElementById('next-result-btn');
+    const searchCounter = document.getElementById('search-counter');
+
+
+    // --- 2. State management variables for search ---
+    var searchResultLayer = L.featureGroup().addTo(map);
+    let searchResultsArray = []; // To store result markers
+    let currentResultIndex = -1;
+
+
+    // --- 3. Main Search Function (performSearch) ---
+    function performSearch() {
+        const query = searchInput.value;
+        if (!query) {
+            return;
+        }
+
+        clearSearchResults(); // Clear previous results first
+
+        const searchUrl = `{% url 'search_pois' %}?name=${encodeURIComponent(query)}`;
+
+        fetch(searchUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.features.length === 0) {
+                    alert('No results found for "' + query + '"');
+                    return;
+                }
+
+                const resultsLayer = L.geoJSON(data, {
+                    pointToLayer: (feature, latlng) => L.marker(latlng, {icon: laptopIcon}),
+                    onEachFeature: (feature, layer) => {
+                        var popupContent = "<h4>Search Result</h4>";
+                        for (var key in feature.properties) {
+                            popupContent += `<b>${key}:</b> ${feature.properties[key]}<br>`;
+                        }
+                        layer.bindPopup(popupContent);
+                        searchResultsArray.push(layer); // Add each marker to our array
+                    }
+                });
+
+                searchResultLayer.addLayer(resultsLayer);
+                map.fitBounds(searchResultLayer.getBounds(), {padding: [50, 50]});
+
+                // Show clear button
+                clearSearchBtn.style.display = 'block';
+
+                // If there's more than one result, show navigation tools
+                if (searchResultsArray.length > 1) {
+                    currentResultIndex = 0;
+                    navigateToResult(0);
+                    searchNavContainer.style.display = 'block';
+                }
+            })
+            .catch(error => console.error('Search Error:', error));
+    }
+
+
+    // --- 4. Helper function to clear results and UI ---
+    function clearSearchResults() {
+        searchResultLayer.clearLayers();
+        searchResultsArray = [];
+        currentResultIndex = -1;
+        clearSearchBtn.style.display = 'none';
+        searchNavContainer.style.display = 'none';
+    }
+
+
+    // --- 5. Helper function to navigate between results ---
+    function navigateToResult(index) {
+        if (index < 0 || index >= searchResultsArray.length) return;
+
+        currentResultIndex = index;
+        const targetMarker = searchResultsArray[index];
+        // Replace the panTo line with setView
+        map.setView(targetMarker.getLatLng(), 16); // 16 is a good "close-up" zoom level
+        {#map.panTo(targetMarker.getLatLng()); // Pan map to the marker#}
+        targetMarker.openPopup(); // Open its popup
+
+        // Update counter text
+        searchCounter.textContent = `${index + 1} of ${searchResultsArray.length}`;
+    }
+
+
+    // --- 6. Event Listeners ---
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') performSearch();
+    });
+
+    clearSearchBtn.addEventListener('click', clearSearchResults);
+
+    nextResultBtn.addEventListener('click', () => {
+        let nextIndex = currentResultIndex + 1;
+        if (nextIndex >= searchResultsArray.length) {
+            nextIndex = 0; // Loop back to the start
+        }
+        navigateToResult(nextIndex);
+    });
+
+    prevResultBtn.addEventListener('click', () => {
+        let prevIndex = currentResultIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = searchResultsArray.length - 1; // Loop to the end
+        }
+        navigateToResult(prevIndex);
+    });
+
+    // ===================================================================
+    // == END: Advanced Search Code                                     ==
+    // ===================================================================
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+<script src="{% static 'mail/contact.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+

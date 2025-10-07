@@ -1,0 +1,95 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Header Start -->
+    <div class="container-fluid hero-header py-5 mb-5" style="background-color: #333; color: white;">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 mb-3 animated slideInDown text-orange" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Contact US</h1>
+                    <nav aria-label="breadcrumb animated slideInDown">
+                        <!-- Breadcrumb or additional navigation can go here -->
+                    </nav>
+                </div>
+                <div class="col-lg-6 animated fadeIn">
+                    <img class="img-fluid animated pulse infinite rounded shadow-lg" style="animation-duration: 3s;" src="{% static 'img/hero-2.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5 col-md-6 wow fadeInUp bg-light p-4 rounded shadow-lg" data-wow-delay="0.1s">
+                    <p class="mb-2 text-dark" style="font-size: 1.1rem; font-weight: bold;">Our Office</p>
+                    <h4 class="text-orange" style="font-size: 1.25rem;">Tehran - Amirabad</h4>
+                    <hr class="w-100" style="border-color: #ffbb00d0;">
+                    <p class="mb-2 text-dark" style="font-size: 1.1rem; font-weight: bold;">Phone number: </p>
+                    <h4 class="text-orange" style="font-size: 1.25rem;">09186651131</h4>
+                    <hr class="w-100" style="border-color: #ffbb00d0;">
+                    <p class="mb-2 text-dark" style="font-size: 1.1rem; font-weight: bold;">Email Address:</p>
+                    <h4 class="text-orange" style="font-size: 1.25rem;">karwanjalali93@gmail.com</h4>
+                    <hr class="w-100" style="border-color: #ffbb00d0;">
+                    <p class="mb-2 text-dark" style="font-size: 1.1rem; font-weight: bold;">Follow us:</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-orange rounded-circle me-2 shadow-lg" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-orange rounded-circle me-2 shadow-lg" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-orange rounded-circle me-2 shadow-lg" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-orange rounded-circle me-2 shadow-lg" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6 wow fadeInUp bg-white p-4 rounded shadow-lg" data-wow-delay="0.5s">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="col-12">
+                            <button class="btn btn-orange py-3 px-4 rounded-pill shadow-lg" type="submit">Send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <style>
+        .text-orange {
+            color: #ffbb00d0 !important;
+        }
+        .btn-orange {
+            background-color: #ffbb00d0 !important;
+            color: white !important;
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-orange:hover {
+            background-color: #ff9f00d0 !important;
+        }
+        .shadow-lg {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .rounded-pill {
+            border-radius: 50px !important;
+        }
+        .hero-header {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+        }
+        hr {
+            border: 1px solid #ffbb00d0;
+        }
+        .wow.fadeInUp {
+            animation-duration: 1.5s;
+            animation-delay: 0.3s;
+        }
+        .container-xxl {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+    </style>
+
+{% endblock %}
